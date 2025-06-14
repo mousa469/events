@@ -23,6 +23,17 @@ class CustomTextField extends StatefulWidget {
   final Color? hintColor;
   final TextDirection? textDirection;
   final EdgeInsets? edgeInsets;
+  final Color? focusBorderColor;
+  final Color? enabledBorderColor;
+  final Color? disabledBorderColor;
+  final Color? errorBorderColor;
+  final Color? normalBorderColor;
+  final Color? fillColor;
+  final double? focusBorder;
+  final double? enabledBorder;
+  final double? disabledBorder;
+  final double? errorBorder;
+  final double? normalBorder;
 
   const CustomTextField({
     super.key,
@@ -58,6 +69,17 @@ class CustomTextField extends StatefulWidget {
       bottom: 14,
     ),
     this.hintColor = Colors.white,
+    this.focusBorderColor,
+    this.enabledBorderColor,
+    this.disabledBorderColor,
+    this.errorBorderColor,
+    this.normalBorderColor,
+    this.fillColor,
+    this.focusBorder,
+    this.enabledBorder,
+    this.disabledBorder,
+    this.errorBorder,
+    this.normalBorder,
   });
 
   @override
@@ -71,97 +93,107 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
 
-    return Material(
-      elevation: 3,
-      borderRadius: BorderRadius.circular(25),
-      child: TextFormField(
-        onTapOutside: (event) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        textDirection: widget.textDirection,
-        controller: widget.controller,
-        textAlignVertical: TextAlignVertical.center,
-        initialValue: widget.value,
-        validator: widget.onValidate,
-        onChanged: widget.onChanged,
-        onEditingComplete: widget.onEditingComplete,
-        onFieldSubmitted: widget.onFieldSubmitted,
-        onSaved: widget.onSaved,
-        onTap: widget.onTap,
-        maxLines: widget.isPassword ?? false ? 1 : widget.maxLines,
-        minLines: widget.isPassword ?? false ? 1 : widget.minLines,
-        maxLength: widget.maxLength,
-        obscureText: widget.isPassword ?? false ? obscureText : false,
-        obscuringCharacter: '*',
-        keyboardType: widget.keyboardType,
-        inputFormatters: widget.inputFormatters,
-        enabled: widget.enabled,
-        style:
-            widget.textStyle ??
-            theme.textTheme.bodyMedium?.copyWith(
-              color: AppColors.black,
-              fontWeight: FontWeight.w500,
-            ),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        textInputAction: widget.action ?? TextInputAction.done,
-        focusNode: widget.focusNode,
-        cursorColor: AppColors.black,
-        decoration: InputDecoration(
-          labelText: widget.label,
-          labelStyle: theme.textTheme.bodyMedium?.copyWith(
-            color: const Color(0xFF777777),
+    return TextFormField(
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      textDirection: widget.textDirection,
+      controller: widget.controller,
+      textAlignVertical: TextAlignVertical.center,
+      initialValue: widget.value,
+      validator: widget.onValidate,
+      onChanged: widget.onChanged,
+      onEditingComplete: widget.onEditingComplete,
+      onFieldSubmitted: widget.onFieldSubmitted,
+      onSaved: widget.onSaved,
+      onTap: widget.onTap,
+      maxLines: widget.isPassword ?? false ? 1 : widget.maxLines,
+      minLines: widget.isPassword ?? false ? 1 : widget.minLines,
+      maxLength: widget.maxLength,
+      obscureText: widget.isPassword ?? false ? obscureText : false,
+      obscuringCharacter: '*',
+      keyboardType: widget.keyboardType,
+      inputFormatters: widget.inputFormatters,
+      enabled: widget.enabled,
+      style:
+          widget.textStyle ??
+          theme.textTheme.bodyMedium?.copyWith(
+            color: AppColors.black,
             fontWeight: FontWeight.w500,
           ),
-          prefixIconConstraints: const BoxConstraints(minWidth: 56),
-          suffixIcon:
-              widget.isPassword ?? false
-                  ? InkWell(
-                    onTap: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                    child: Icon(
-                      obscureText
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      color: Colors.grey,
-                    ),
-                  )
-                  : widget.suffixWidget,
-          prefixIcon: widget.prefixIcon,
-          hintText: widget.hint,
-          hintStyle: TextStyle(
-            fontFamily: "Inter",
-            fontSize: 16,
-            color: widget.hintColor,
-            fontWeight: FontWeight.w500,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      textInputAction: widget.action ?? TextInputAction.done,
+      focusNode: widget.focusNode,
+      cursorColor: AppColors.black,
+      decoration: InputDecoration(
+        labelText: widget.label,
+        labelStyle: theme.textTheme.bodyMedium?.copyWith(
+          color: const Color(0xFF777777),
+          fontWeight: FontWeight.w500,
+        ),
+        prefixIconConstraints: const BoxConstraints(minWidth: 56),
+        suffixIcon: widget.isPassword ?? false
+            ? InkWell(
+                onTap: () {
+                  setState(() {
+                    obscureText = !obscureText;
+                  });
+                },
+                child: Icon(
+                  obscureText
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                  color: Colors.grey,
+                ),
+              )
+            : widget.suffixWidget,
+        prefixIcon: widget.prefixIcon,
+        hintText: widget.hint,
+        hintStyle: TextStyle(
+          fontFamily: "Inter",
+          fontSize: 16,
+          color: widget.hintColor,
+          fontWeight: FontWeight.w500,
+        ),
+        counterText: "",
+        fillColor: widget.fillColor ?? Colors.transparent,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.normalBorder ?? 16),
+          borderSide: BorderSide(
+            color: widget.normalBorderColor ?? Colors.transparent,
+            width: 0,
           ),
-          counterText: "",
-          fillColor: AppColors.white,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(color: Colors.transparent, width: 0),
+        ),
+        contentPadding: widget.edgeInsets,
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.disabledBorder ?? 16),
+          borderSide: BorderSide(
+            color: widget.disabledBorderColor ?? Colors.transparent,
+            width: 0,
           ),
-          contentPadding: widget.edgeInsets,
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(color: Colors.transparent, width: 0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.enabledBorder ?? 16),
+          borderSide: BorderSide(
+            color: widget.enabledBorderColor ?? Colors.transparent,
+            width: 0,
           ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(color: Colors.transparent, width: 0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.focusBorder ?? 16),
+          borderSide: BorderSide(
+            color: widget.focusBorderColor ?? Colors.transparent,
+            width: 0,
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(color: Colors.transparent, width: 0),
-          ),
-          errorStyle: const TextStyle(color: Color(0xFFCC0000), fontSize: 12),
-          errorMaxLines: 6,
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: const BorderSide(color: Color(0xFFCC0000), width: 1),
+        ),
+        errorStyle: const TextStyle(color: Color(0xFFCC0000), fontSize: 12),
+        errorMaxLines: 6,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.errorBorder ?? 16),
+          borderSide: BorderSide(
+            color: widget.focusBorderColor ?? Color(0xFFCC0000),
+            width: 1,
           ),
         ),
       ),

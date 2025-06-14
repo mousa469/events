@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Forget_Password_question": MessageLookupByLibrary.simpleMessage(
+      "نسيت كلمه المرور؟",
+    ),
     "add_event": MessageLookupByLibrary.simpleMessage("إضافة الفعالية"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "already_have_account": MessageLookupByLibrary.simpleMessage(
@@ -76,12 +79,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_google": MessageLookupByLibrary.simpleMessage(
-      "تسجيل الدخول باستخدام Google",
+      "تسجيل الدخول باستخدام جوجل",
+    ),
+    "login_with_facebook": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول باستخدام فيس بوك ",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "love": MessageLookupByLibrary.simpleMessage("الإعجابات"),
     "map": MessageLookupByLibrary.simpleMessage("الخريطة"),
     "meeting": MessageLookupByLibrary.simpleMessage("اجتماع"),
+    "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "personalize_experience": MessageLookupByLibrary.simpleMessage(

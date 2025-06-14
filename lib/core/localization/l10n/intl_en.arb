@@ -53,5 +53,11 @@
   "tap_location": "Tap on Location To Select",
   "event_details": "Event Details",
   "edit_event": "Edit Event",
-  "update_event": "Update Event"
+  "update_event": "Update Event",
+  "Forget_Password_question" :"Forget Password?",
+  "login_with_facebook" : "Login With Facebook",
+    "name":"Name"
+
+
+
 }

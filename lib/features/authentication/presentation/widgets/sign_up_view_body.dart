@@ -1,15 +1,15 @@
-import 'package:events/features/authentication/presentation/widgets/portrait_sign_in_view_body.dart';
+import 'package:events/features/authentication/presentation/widgets/portrait_sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 
-class SignInViewBody extends StatelessWidget {
-  const SignInViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context, orientation) {
         if (orientation == Orientation.portrait) {
-          return PortraitSignInViewBody();
+          return PortraitSignUpViewBody();
         } else {
           return Placeholder();
         }

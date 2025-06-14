@@ -3,12 +3,18 @@ import 'package:events/core/router/app_router.dart';
 import 'package:events/core/utilies/language_toggler.dart';
 import 'package:events/core/utilies/theme_toggler.dart';
 import 'package:events/features/authentication/presentation/views/sign_in_view.dart';
+import 'package:events/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const Evently());
 }
 

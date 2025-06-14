@@ -438,6 +438,31 @@ class S {
       args: [],
     );
   }
+
+  /// `Forget Password?`
+  String get Forget_Password_question {
+    return Intl.message(
+      'Forget Password?',
+      name: 'Forget_Password_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login With Facebook`
+  String get login_with_facebook {
+    return Intl.message(
+      'Login With Facebook',
+      name: 'login_with_facebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

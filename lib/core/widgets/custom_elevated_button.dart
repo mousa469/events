@@ -8,7 +8,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.borderRadius,
     required this.width,
     required this.onPressed,
-     required this.textStyle,
+    required this.textStyle,
   });
   final String title;
   final Color backgroundColor;
@@ -29,10 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
           backgroundColor: backgroundColor,
         ),
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: textStyle,
-        ),
+        child: Text(title, style: textStyle),
       ),
     );
   }
