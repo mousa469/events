@@ -3,7 +3,8 @@ import 'package:events/core/theme/app_colors/app_colors_light_mode.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
-  static ThemeData lightMode = ThemeData(
+  static final ThemeData lightMode = ThemeData.light().copyWith(
+    textTheme: ThemeData.light().textTheme,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColorsLightMode.appbarBackGroundColor,
     ),
@@ -13,7 +14,8 @@ abstract class AppTheme {
     ),
   );
 
-  static ThemeData darkMode = ThemeData(
+  static final ThemeData darkMode = ThemeData.dark().copyWith(
+    textTheme: ThemeData.dark().textTheme,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColorsDarkMode.appbarBackGroundColor,
     ),
