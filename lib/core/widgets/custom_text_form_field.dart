@@ -20,7 +20,7 @@ class CustomTextField extends StatefulWidget {
   final IconData? icon;
   final TextInputAction? action;
   final FocusNode? focusNode;
-  final Color? hintColor;
+  // final Color? hintColor;
   final TextDirection? textDirection;
   final EdgeInsets? edgeInsets;
   final Color? focusBorderColor;
@@ -68,7 +68,7 @@ class CustomTextField extends StatefulWidget {
       right: 16,
       bottom: 14,
     ),
-    this.hintColor = Colors.white,
+    // this.hintColor = Colors.white,
     this.focusBorderColor,
     this.enabledBorderColor,
     this.disabledBorderColor,
@@ -115,12 +115,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       keyboardType: widget.keyboardType,
       inputFormatters: widget.inputFormatters,
       enabled: widget.enabled,
-      style:
-          widget.textStyle ??
-          theme.textTheme.bodyMedium?.copyWith(
-            color: AppColors.black,
-            fontWeight: FontWeight.w500,
-          ),
+
       autovalidateMode: AutovalidateMode.onUserInteraction,
       textInputAction: widget.action ?? TextInputAction.done,
       focusNode: widget.focusNode,
@@ -143,59 +138,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   obscureText
                       ? Icons.visibility_outlined
                       : Icons.visibility_off_outlined,
-                  color: Colors.grey,
+                  // color: Colors.grey,
                 ),
               )
             : widget.suffixWidget,
         prefixIcon: widget.prefixIcon,
         hintText: widget.hint,
-        hintStyle: TextStyle(
-          fontFamily: "Inter",
-          fontSize: 16,
-          color: widget.hintColor,
-          fontWeight: FontWeight.w500,
-        ),
         counterText: "",
         fillColor: widget.fillColor ?? Colors.transparent,
         filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.normalBorder ?? 16),
-          borderSide: BorderSide(
-            color: widget.normalBorderColor ?? Colors.transparent,
-            width: 0,
-          ),
-        ),
         contentPadding: widget.edgeInsets,
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.disabledBorder ?? 16),
-          borderSide: BorderSide(
-            color: widget.disabledBorderColor ?? Colors.transparent,
-            width: 0,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.enabledBorder ?? 16),
-          borderSide: BorderSide(
-            color: widget.enabledBorderColor ?? Colors.transparent,
-            width: 0,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.focusBorder ?? 16),
-          borderSide: BorderSide(
-            color: widget.focusBorderColor ?? Colors.transparent,
-            width: 0,
-          ),
-        ),
+
         errorStyle: const TextStyle(color: Color(0xFFCC0000), fontSize: 12),
         errorMaxLines: 6,
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.errorBorder ?? 16),
-          borderSide: BorderSide(
-            color: widget.focusBorderColor ?? Color(0xFFCC0000),
-            width: 1,
-          ),
-        ),
       ),
     );
   }

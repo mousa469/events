@@ -22,8 +22,61 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ABORTED": MessageLookupByLibrary.simpleMessage(
+      "تم إيقاف العملية بسبب تعارض. الرجاء المحاولة مرة أخرى.",
+    ),
+    "ALREADY_EXISTS": MessageLookupByLibrary.simpleMessage(
+      "هذا العنصر موجود بالفعل.",
+    ),
+    "CANCELLED": MessageLookupByLibrary.simpleMessage("تم إلغاء العملية."),
+    "DATA_LOSS": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ جسيم. قد تكون بعض البيانات قد فُقدت.",
+    ),
+    "DEADLINE_EXCEEDED": MessageLookupByLibrary.simpleMessage(
+      "استغرقت العملية وقتًا طويلاً. الرجاء المحاولة مرة أخرى.",
+    ),
+    "FAILED_PRECONDITION": MessageLookupByLibrary.simpleMessage(
+      "النظام غير جاهز لتنفيذ هذا الإجراء.",
+    ),
+    "Field_is_required": MessageLookupByLibrary.simpleMessage(
+      "هذا الحقل مطلوب",
+    ),
     "Forget_Password_question": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمه المرور؟",
+    ),
+    "INTERNAL": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ داخلي. الرجاء المحاولة لاحقًا.",
+    ),
+    "INVALID_ARGUMENT": MessageLookupByLibrary.simpleMessage(
+      "تم إدخال بيانات غير صالحة. الرجاء التحقق من البيانات.",
+    ),
+    "NOT_FOUND": MessageLookupByLibrary.simpleMessage(
+      "العنصر المطلوب غير موجود.",
+    ),
+    "OK": MessageLookupByLibrary.simpleMessage("تم تنفيذ العملية بنجاح."),
+    "OUT_OF_RANGE": MessageLookupByLibrary.simpleMessage(
+      "الطلب خارج النطاق المسموح به.",
+    ),
+    "PERMISSION_DENIED": MessageLookupByLibrary.simpleMessage(
+      "ليس لديك الصلاحية لتنفيذ هذا الإجراء.",
+    ),
+    "RESOURCE_EXHAUSTED": MessageLookupByLibrary.simpleMessage(
+      "تم استهلاك الموارد المتاحة. حاول مرة أخرى لاحقًا.",
+    ),
+    "UNAUTHENTICATED": MessageLookupByLibrary.simpleMessage(
+      "يجب تسجيل الدخول لتنفيذ هذا الإجراء.",
+    ),
+    "UNAVAILABLE": MessageLookupByLibrary.simpleMessage(
+      "الخدمة غير متوفرة حاليًا. الرجاء المحاولة لاحقًا.",
+    ),
+    "UNIMPLEMENTED": MessageLookupByLibrary.simpleMessage(
+      "هذه الميزة غير متوفرة حاليًا.",
+    ),
+    "UNKNOWN": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.",
+    ),
+    "accountExistsWithDifferentCredential": MessageLookupByLibrary.simpleMessage(
+      "يوجد حساب مرتبط بالفعل بهذا البريد الإلكتروني ولكن باستخدام طريقة تسجيل دخول مختلفة. يرجى استخدام مزود التسجيل الصحيح (مثل جوجل أو فيسبوك أو البريد الإلكتروني).",
     ),
     "add_event": MessageLookupByLibrary.simpleMessage("إضافة الفعالية"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
@@ -59,6 +112,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "ودّع عناء تنظيم الفعاليات باستخدام أدواتنا المتكاملة. من إرسال الدعوات وإدارة الردود إلى جدولة التذكيرات وتنسيق التفاصيل – نحن نهتم بكل شيء. نظّم بسهولة وركز على ما يهم – خلق تجربة لا تُنسى لك ولضيوفك.",
     ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "email_already_in_use": MessageLookupByLibrary.simpleMessage(
+      "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
+    ),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "event_date": MessageLookupByLibrary.simpleMessage("تاريخ الفعالية"),
     "event_description": MessageLookupByLibrary.simpleMessage("وصف الفعالية"),
     "event_details": MessageLookupByLibrary.simpleMessage("تفاصيل الفعالية"),
@@ -75,7 +132,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "gaming": MessageLookupByLibrary.simpleMessage("ألعاب"),
     "holiday": MessageLookupByLibrary.simpleMessage("عطلة"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "invalid_credentials": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل "),
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_google": MessageLookupByLibrary.simpleMessage(
@@ -88,27 +149,52 @@ class MessageLookup extends MessageLookupByLibrary {
     "love": MessageLookupByLibrary.simpleMessage("الإعجابات"),
     "map": MessageLookupByLibrary.simpleMessage("الخريطة"),
     "meeting": MessageLookupByLibrary.simpleMessage("اجتماع"),
+    "mohamed_mousa": MessageLookupByLibrary.simpleMessage("محمد موسي "),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+    "oops": MessageLookupByLibrary.simpleMessage("عذرًا"),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwords_do_not_match": MessageLookupByLibrary.simpleMessage(
+      "كلمتا المرور غير متطابقتين.",
+    ),
     "personalize_experience": MessageLookupByLibrary.simpleMessage(
       "خصص تجربتك",
     ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "re_password": MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+    "registration_success": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الحساب بنجاح!",
+    ),
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
     "search_event": MessageLookupByLibrary.simpleMessage("ابحث عن فعالية"),
+    "signInSuccess": MessageLookupByLibrary.simpleMessage(
+      "لقد سجلت الدخول بنجاح.",
+    ),
     "sport": MessageLookupByLibrary.simpleMessage("رياضة"),
+    "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
     "tap_location": MessageLookupByLibrary.simpleMessage(
       "اضغط على الموقع للتحديد",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("السمة"),
     "title": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "unexpected_error": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
+    ),
     "update_event": MessageLookupByLibrary.simpleMessage("تحديث الفعالية"),
+    "user_not_found": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد مستخدم بهذا البريد الإلكتروني.",
+    ),
+    "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
+    "weak_password": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور المُقدمة ضعيفة جدًا.",
+    ),
     "welcome_back": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
     "workshop": MessageLookupByLibrary.simpleMessage("ورشة عمل"),
+    "wrong_password": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور المقدمة غير صحيحة لهذا المستخدم.",
+    ),
   };
 }

@@ -234,10 +234,10 @@ class S {
     );
   }
 
-  /// `Welcome Back`
+  /// `Welcome Back ✨`
   String get welcome_back {
     return Intl.message(
-      'Welcome Back',
+      'Welcome Back ✨',
       name: 'welcome_back',
       desc: '',
       args: [],
@@ -462,6 +462,321 @@ class S {
   /// `Name`
   String get name {
     return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `The password provided is too weak.`
+  String get weak_password {
+    return Intl.message(
+      'The password provided is too weak.',
+      name: 'weak_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account already exists for that email.`
+  String get email_already_in_use {
+    return Intl.message(
+      'The account already exists for that email.',
+      name: 'email_already_in_use',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No user found for that email.`
+  String get user_not_found {
+    return Intl.message(
+      'No user found for that email.',
+      name: 'user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password provided for that user.`
+  String get wrong_password {
+    return Intl.message(
+      'Wrong password provided for that user.',
+      name: 'wrong_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email or password.`
+  String get invalid_credentials {
+    return Intl.message(
+      'Invalid email or password.',
+      name: 'invalid_credentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred, please try again later.`
+  String get unexpected_error {
+    return Intl.message(
+      'An unexpected error occurred, please try again later.',
+      name: 'unexpected_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `field is required`
+  String get Field_is_required {
+    return Intl.message(
+      'field is required',
+      name: 'Field_is_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match.`
+  String get passwords_do_not_match {
+    return Intl.message(
+      'Passwords do not match.',
+      name: 'passwords_do_not_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops`
+  String get oops {
+    return Intl.message('Oops', name: 'oops', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message('Warning', name: 'warning', desc: '', args: []);
+  }
+
+  /// `Successfully`
+  String get success {
+    return Intl.message('Successfully', name: 'success', desc: '', args: []);
+  }
+
+  /// `loading`
+  String get loading {
+    return Intl.message('loading', name: 'loading', desc: '', args: []);
+  }
+
+  /// `Account created successfully!`
+  String get registration_success {
+    return Intl.message(
+      'Account created successfully!',
+      name: 'registration_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have signed in successfully.`
+  String get signInSuccess {
+    return Intl.message(
+      'You have signed in successfully.',
+      name: 'signInSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operation was interrupted due to a conflict. Please try again.`
+  String get ABORTED {
+    return Intl.message(
+      'The operation was interrupted due to a conflict. Please try again.',
+      name: 'ABORTED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This item already exists.`
+  String get ALREADY_EXISTS {
+    return Intl.message(
+      'This item already exists.',
+      name: 'ALREADY_EXISTS',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operation was cancelled.`
+  String get CANCELLED {
+    return Intl.message(
+      'The operation was cancelled.',
+      name: 'CANCELLED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A serious error occurred. Some data may be lost.`
+  String get DATA_LOSS {
+    return Intl.message(
+      'A serious error occurred. Some data may be lost.',
+      name: 'DATA_LOSS',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operation took too long to complete. Please try again.`
+  String get DEADLINE_EXCEEDED {
+    return Intl.message(
+      'The operation took too long to complete. Please try again.',
+      name: 'DEADLINE_EXCEEDED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The system is not ready to perform this action.`
+  String get FAILED_PRECONDITION {
+    return Intl.message(
+      'The system is not ready to perform this action.',
+      name: 'FAILED_PRECONDITION',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An internal error occurred. Please try again later.`
+  String get INTERNAL {
+    return Intl.message(
+      'An internal error occurred. Please try again later.',
+      name: 'INTERNAL',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid input provided. Please check your data.`
+  String get INVALID_ARGUMENT {
+    return Intl.message(
+      'Invalid input provided. Please check your data.',
+      name: 'INVALID_ARGUMENT',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The requested item was not found.`
+  String get NOT_FOUND {
+    return Intl.message(
+      'The requested item was not found.',
+      name: 'NOT_FOUND',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Operation completed successfully.`
+  String get OK {
+    return Intl.message(
+      'Operation completed successfully.',
+      name: 'OK',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The request was out of valid range.`
+  String get OUT_OF_RANGE {
+    return Intl.message(
+      'The request was out of valid range.',
+      name: 'OUT_OF_RANGE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You do not have permission to do this.`
+  String get PERMISSION_DENIED {
+    return Intl.message(
+      'You do not have permission to do this.',
+      name: 'PERMISSION_DENIED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resource limit reached. Try again later.`
+  String get RESOURCE_EXHAUSTED {
+    return Intl.message(
+      'Resource limit reached. Try again later.',
+      name: 'RESOURCE_EXHAUSTED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must be logged in to perform this action.`
+  String get UNAUTHENTICATED {
+    return Intl.message(
+      'You must be logged in to perform this action.',
+      name: 'UNAUTHENTICATED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service is currently unavailable. Please try again later.`
+  String get UNAVAILABLE {
+    return Intl.message(
+      'Service is currently unavailable. Please try again later.',
+      name: 'UNAVAILABLE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This feature is not available yet.`
+  String get UNIMPLEMENTED {
+    return Intl.message(
+      'This feature is not available yet.',
+      name: 'UNIMPLEMENTED',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred. Please try again.`
+  String get UNKNOWN {
+    return Intl.message(
+      'An unknown error occurred. Please try again.',
+      name: 'UNKNOWN',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An account already exists with the same email address but using a different sign-in method. Please use the correct provider (e.g., Google, Facebook, or email) to log in.`
+  String get accountExistsWithDifferentCredential {
+    return Intl.message(
+      'An account already exists with the same email address but using a different sign-in method. Please use the correct provider (e.g., Google, Facebook, or email) to log in.',
+      name: 'accountExistsWithDifferentCredential',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mohamed mousa`
+  String get mohamed_mousa {
+    return Intl.message(
+      'mohamed mousa',
+      name: 'mohamed_mousa',
+      desc: '',
+      args: [],
+    );
   }
 }
 

@@ -32,10 +32,12 @@ class SocialProvider extends StatelessWidget {
             children: [
               img,
               SizedBox(width: 5.w),
-              Text(
-                title,
-                style: AppStyles.style20Medium.copyWith(
-                  color: AppColors.primaryColor,
+              Expanded(
+                child: Text(
+                  title,
+                  style: AppStyles.style20Medium.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ),
             ],

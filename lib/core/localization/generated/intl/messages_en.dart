@@ -22,8 +22,65 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "ABORTED": MessageLookupByLibrary.simpleMessage(
+      "The operation was interrupted due to a conflict. Please try again.",
+    ),
+    "ALREADY_EXISTS": MessageLookupByLibrary.simpleMessage(
+      "This item already exists.",
+    ),
+    "CANCELLED": MessageLookupByLibrary.simpleMessage(
+      "The operation was cancelled.",
+    ),
+    "DATA_LOSS": MessageLookupByLibrary.simpleMessage(
+      "A serious error occurred. Some data may be lost.",
+    ),
+    "DEADLINE_EXCEEDED": MessageLookupByLibrary.simpleMessage(
+      "The operation took too long to complete. Please try again.",
+    ),
+    "FAILED_PRECONDITION": MessageLookupByLibrary.simpleMessage(
+      "The system is not ready to perform this action.",
+    ),
+    "Field_is_required": MessageLookupByLibrary.simpleMessage(
+      "field is required",
+    ),
     "Forget_Password_question": MessageLookupByLibrary.simpleMessage(
       "Forget Password?",
+    ),
+    "INTERNAL": MessageLookupByLibrary.simpleMessage(
+      "An internal error occurred. Please try again later.",
+    ),
+    "INVALID_ARGUMENT": MessageLookupByLibrary.simpleMessage(
+      "Invalid input provided. Please check your data.",
+    ),
+    "NOT_FOUND": MessageLookupByLibrary.simpleMessage(
+      "The requested item was not found.",
+    ),
+    "OK": MessageLookupByLibrary.simpleMessage(
+      "Operation completed successfully.",
+    ),
+    "OUT_OF_RANGE": MessageLookupByLibrary.simpleMessage(
+      "The request was out of valid range.",
+    ),
+    "PERMISSION_DENIED": MessageLookupByLibrary.simpleMessage(
+      "You do not have permission to do this.",
+    ),
+    "RESOURCE_EXHAUSTED": MessageLookupByLibrary.simpleMessage(
+      "Resource limit reached. Try again later.",
+    ),
+    "UNAUTHENTICATED": MessageLookupByLibrary.simpleMessage(
+      "You must be logged in to perform this action.",
+    ),
+    "UNAVAILABLE": MessageLookupByLibrary.simpleMessage(
+      "Service is currently unavailable. Please try again later.",
+    ),
+    "UNIMPLEMENTED": MessageLookupByLibrary.simpleMessage(
+      "This feature is not available yet.",
+    ),
+    "UNKNOWN": MessageLookupByLibrary.simpleMessage(
+      "An unknown error occurred. Please try again.",
+    ),
+    "accountExistsWithDifferentCredential": MessageLookupByLibrary.simpleMessage(
+      "An account already exists with the same email address but using a different sign-in method. Please use the correct provider (e.g., Google, Facebook, or email) to log in.",
     ),
     "add_event": MessageLookupByLibrary.simpleMessage("Add Event"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
@@ -61,6 +118,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "email_already_in_use": MessageLookupByLibrary.simpleMessage(
+      "The account already exists for that email.",
+    ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
     "event_date": MessageLookupByLibrary.simpleMessage("Event Date"),
     "event_description": MessageLookupByLibrary.simpleMessage(
       "Event Description",
@@ -79,7 +140,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "gaming": MessageLookupByLibrary.simpleMessage("Gaming"),
     "holiday": MessageLookupByLibrary.simpleMessage("Holiday"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "invalid_credentials": MessageLookupByLibrary.simpleMessage(
+      "Invalid email or password.",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "loading": MessageLookupByLibrary.simpleMessage("loading"),
     "location": MessageLookupByLibrary.simpleMessage("Location"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_google": MessageLookupByLibrary.simpleMessage("Login With Google"),
@@ -90,25 +155,50 @@ class MessageLookup extends MessageLookupByLibrary {
     "love": MessageLookupByLibrary.simpleMessage("Love"),
     "map": MessageLookupByLibrary.simpleMessage("Map"),
     "meeting": MessageLookupByLibrary.simpleMessage("Meeting"),
+    "mohamed_mousa": MessageLookupByLibrary.simpleMessage("mohamed mousa"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "oops": MessageLookupByLibrary.simpleMessage("Oops"),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwords_do_not_match": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match.",
+    ),
     "personalize_experience": MessageLookupByLibrary.simpleMessage(
       "Personalize Your Experience",
     ),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "re_password": MessageLookupByLibrary.simpleMessage("Re Password"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "registration_success": MessageLookupByLibrary.simpleMessage(
+      "Account created successfully!",
+    ),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_event": MessageLookupByLibrary.simpleMessage("Search for Event"),
+    "signInSuccess": MessageLookupByLibrary.simpleMessage(
+      "You have signed in successfully.",
+    ),
     "sport": MessageLookupByLibrary.simpleMessage("Sport"),
+    "success": MessageLookupByLibrary.simpleMessage("Successfully"),
     "tap_location": MessageLookupByLibrary.simpleMessage(
       "Tap on Location To Select",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "title": MessageLookupByLibrary.simpleMessage("Title"),
+    "unexpected_error": MessageLookupByLibrary.simpleMessage(
+      "An unexpected error occurred, please try again later.",
+    ),
     "update_event": MessageLookupByLibrary.simpleMessage("Update Event"),
-    "welcome_back": MessageLookupByLibrary.simpleMessage("Welcome Back"),
+    "user_not_found": MessageLookupByLibrary.simpleMessage(
+      "No user found for that email.",
+    ),
+    "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+    "weak_password": MessageLookupByLibrary.simpleMessage(
+      "The password provided is too weak.",
+    ),
+    "welcome_back": MessageLookupByLibrary.simpleMessage("Welcome Back ✨"),
     "workshop": MessageLookupByLibrary.simpleMessage("Workshop"),
+    "wrong_password": MessageLookupByLibrary.simpleMessage(
+      "Wrong password provided for that user.",
+    ),
   };
 }

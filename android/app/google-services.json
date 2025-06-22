@@ -12,7 +12,20 @@
           "package_name": "com.example.evently"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1037967074240-erpk3aedio65uldorpo0mabhleismq9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evently",
+            "certificate_hash": "231a150d390f530309bf332c263f4a031bb25972"
+          }
+        },
+        {
+          "client_id": "1037967074240-vuhjvv3l1jaqff7vdeon61u9la4uemhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDPx5aOK2VvhGph0kDQa5mR64ji8TrC33Y"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037967074240-vuhjvv3l1jaqff7vdeon61u9la4uemhr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1037967074240-31hp70l0ks1rlfq7uq45d0alsr8mbda4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.events"
+              }
+            }
+          ]
         }
       }
     },
@@ -31,7 +56,12 @@
           "package_name": "com.example.events"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1037967074240-vuhjvv3l1jaqff7vdeon61u9la4uemhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDPx5aOK2VvhGph0kDQa5mR64ji8TrC33Y"
@@ -39,7 +69,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037967074240-vuhjvv3l1jaqff7vdeon61u9la4uemhr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1037967074240-31hp70l0ks1rlfq7uq45d0alsr8mbda4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.events"
+              }
+            }
+          ]
         }
       }
     }

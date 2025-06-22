@@ -21,7 +21,7 @@
   "already_have_account": "Already Have Account?",
   "register": "Register",
   "reset_password": "Reset Password",
-  "welcome_back": "Welcome Back",
+  "welcome_back": "Welcome Back ✨",
   "all": "All",
   "sport": "Sport",
   "birthday": "Birthday",
@@ -56,8 +56,45 @@
   "update_event": "Update Event",
   "Forget_Password_question" :"Forget Password?",
   "login_with_facebook" : "Login With Facebook",
-    "name":"Name"
-
-
+    "name":"Name",
+  "weak_password": "The password provided is too weak.",
+  "email_already_in_use": "The account already exists for that email.",
+  "user_not_found": "No user found for that email.",
+  "wrong_password": "Wrong password provided for that user.",
+  "invalid_credentials": "Invalid email or password.",
+  "unexpected_error": "An unexpected error occurred, please try again later.",
+    "Field_is_required" : "field is required",
+    "passwords_do_not_match": "Passwords do not match.",
+     "oops": "Oops",
+  "error": "Error",
+  "warning": "Warning",
+  "success": "Successfully",
+  "loading" :"loading",
+  "registration_success": "Account created successfully!",
+  "signInSuccess": "You have signed in successfully.",
+    "ABORTED": "The operation was interrupted due to a conflict. Please try again.",
+    "ALREADY_EXISTS": "This item already exists.",
+    "CANCELLED": "The operation was cancelled.",
+    "DATA_LOSS": "A serious error occurred. Some data may be lost.",
+    "DEADLINE_EXCEEDED": "The operation took too long to complete. Please try again.",
+    "FAILED_PRECONDITION": "The system is not ready to perform this action.",
+    "INTERNAL": "An internal error occurred. Please try again later.",
+    "INVALID_ARGUMENT": "Invalid input provided. Please check your data.",
+    "NOT_FOUND": "The requested item was not found.",
+    "OK": "Operation completed successfully.",
+    "OUT_OF_RANGE": "The request was out of valid range.",
+    "PERMISSION_DENIED": "You do not have permission to do this.",
+    "RESOURCE_EXHAUSTED": "Resource limit reached. Try again later.",
+    "UNAUTHENTICATED": "You must be logged in to perform this action.",
+    "UNAVAILABLE": "Service is currently unavailable. Please try again later.",
+    "UNIMPLEMENTED": "This feature is not available yet.",
+    "UNKNOWN": "An unknown error occurred. Please try again.",
+      "accountExistsWithDifferentCredential": "An account already exists with the same email address but using a different sign-in method. Please use the correct provider (e.g., Google, Facebook, or email) to log in.",
+        "mohamed_mousa":"mohamed mousa"
 
 }
+
+
+
+
+
