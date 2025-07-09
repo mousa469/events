@@ -778,6 +778,178 @@ class S {
       args: [],
     );
   }
+
+  /// `No internet connection , please check your network`
+  String get no_internet_connection_failure {
+    return Intl.message(
+      'No internet connection , please check your network',
+      name: 'no_internet_connection_failure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you must choose date for the event`
+  String get choose_date_required {
+    return Intl.message(
+      'you must choose date for the event',
+      name: 'choose_date_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you must choose time for the event`
+  String get choose_time_required {
+    return Intl.message(
+      'you must choose time for the event',
+      name: 'choose_time_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you must choose date and time for the event`
+  String get date_time_require {
+    return Intl.message(
+      'you must choose date and time for the event',
+      name: 'date_time_require',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission denied.`
+  String get location_permission_denied {
+    return Intl.message(
+      'Location permission denied.',
+      name: 'location_permission_denied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please press the button again and allow location access.`
+  String get location_permission_instruction {
+    return Intl.message(
+      'Please press the button again and allow location access.',
+      name: 'location_permission_instruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location services denied you should open it Manually from settings`
+  String get Location_services_denied_instruction {
+    return Intl.message(
+      'Location services denied you should open it Manually from settings',
+      name: 'Location_services_denied_instruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `Search for your event Location`
+  String get Search_for_your_event_Location {
+    return Intl.message(
+      'Search for your event Location',
+      name: 'Search_for_your_event_Location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not find any result for the supplied address`
+  String get no_address_found {
+    return Intl.message(
+      'Could not find any result for the supplied address',
+      name: 'no_address_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Press here after tap your location`
+  String get Press_here_after_tap_your_location {
+    return Intl.message(
+      'Press here after tap your location',
+      name: 'Press_here_after_tap_your_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you should tap your event location`
+  String get you_should_tap_your_event_location {
+    return Intl.message(
+      'you should tap your event location',
+      name: 'you_should_tap_your_event_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'location_service _denied_message' key
+
+  /// `location permission is denied , please open app settings to allow location permission`
+  String get location_permission_message {
+    return Intl.message(
+      'location permission is denied , please open app settings to allow location permission',
+      name: 'location_permission_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Event location required`
+  String get event_location_requird {
+    return Intl.message(
+      'Event location required',
+      name: 'event_location_requird',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Event created successfully`
+  String get event_created_successfully {
+    return Intl.message(
+      'Event created successfully',
+      name: 'event_created_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Name not available`
+  String get name_not_available {
+    return Intl.message(
+      ' Name not available',
+      name: 'name_not_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No events added yet`
+  String get No_events_added_yet {
+    return Intl.message(
+      'No events added yet',
+      name: 'No_events_added_yet',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

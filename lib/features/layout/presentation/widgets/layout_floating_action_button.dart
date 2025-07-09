@@ -13,7 +13,7 @@ class LayoutFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Provider.of<ThemeToggler>(context);
     return InkWell(
-      onTap: () {
+      onTap: () async {
         context.pushNamed(routeName: CreateEventView.id);
       },
       child: CircleAvatar(

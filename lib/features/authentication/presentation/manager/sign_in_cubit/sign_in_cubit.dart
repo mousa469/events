@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:events/core/errors/firebase_Auth_failure_messages_mapper.dart';
-import 'package:events/core/errors/firebase_auth_exception_handler.dart';
-import 'package:events/core/errors/firebase_auth_failure_handler.dart';
-import 'package:events/core/errors/firebase_firestore_failure_handler.dart';
-import 'package:events/core/errors/firebase_firestore_messages_mapper.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_Auth_failure_messages_mapper.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_exception_handler.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_failure_handler.dart';
+import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_failure_handler.dart';
+import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_messages_mapper.dart';
 import 'package:events/core/services/local_storage.dart';
 import 'package:events/core/services/secure_local_storage.dart';
 import 'package:events/core/utilies/keys.dart';

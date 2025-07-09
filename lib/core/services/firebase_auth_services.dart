@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:events/core/errors/firebase_auth_exception_handler.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_exception_handler.dart';
 import 'package:events/core/errors/un_expected_exception.dart';
 import 'package:events/core/services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;

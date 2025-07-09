@@ -4,6 +4,7 @@ import 'package:events/core/router/app_router.dart';
 import 'package:events/core/services/hive_local_storage.dart';
 import 'package:events/core/services/service_locator.dart';
 import 'package:events/core/utilies/easy_loading.dart';
+import 'package:events/core/utilies/event_info.dart';
 import 'package:events/core/utilies/keys.dart';
 import 'package:events/core/utilies/language_toggler.dart';
 import 'package:events/core/utilies/theme_toggler.dart';
@@ -36,17 +37,21 @@ class Evently extends StatefulWidget {
 }
 
 class _EventlyState extends State<Evently> {
-String getInitialRoute() {
-  final localStorage = HiveLocalStorage();
+  String getInitialRoute() {
+    final localStorage = HiveLocalStorage();
 
-  final wasOnboardingSeen = localStorage.getBool(key: Keys.isOnBoardingSeenBefore);
-  if (wasOnboardingSeen != true) {
-    return OnBoardingView.id;
+    final wasOnboardingSeen = localStorage.getBool(
+      key: Keys.isOnBoardingSeenBefore,
+    );
+    if (wasOnboardingSeen != true) {
+      return OnBoardingView.id;
+    }
+
+    final wasSignedInBefore = localStorage.getBool(
+      key: Keys.isAthenticatedBefore,
+    );
+    return (wasSignedInBefore == true) ? LayoutView.id : SignInView.id;
   }
-
-  final wasSignedInBefore = localStorage.getBool(key: Keys.isAthenticatedBefore);
-  return (wasSignedInBefore == true) ? LayoutView.id : SignInView.id;
-}
 
   @override
   void initState() {
@@ -59,6 +64,7 @@ String getInitialRoute() {
       providers: [
         ChangeNotifierProvider(create: (context) => LanguageToggler()),
         ChangeNotifierProvider(create: (context) => ThemeToggler()),
+        ChangeNotifierProvider(create: (context) => EventInformation()),
       ],
       child: Builder(
         builder: (context) {
@@ -83,7 +89,7 @@ String getInitialRoute() {
               locale: local.locale,
               theme: mode.appTheme,
               onGenerateRoute: AppRouter.onGenerateRoute,
-              initialRoute: getInitialRoute(),
+              initialRoute: LayoutView.id,
             ),
           );
         },

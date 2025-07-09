@@ -1,10 +1,12 @@
 import 'package:events/constants.dart';
 import 'package:events/core/extensions/padding_extension.dart';
 import 'package:events/core/models/event_category_model.dart';
+import 'package:events/core/utilies/event_info.dart';
 import 'package:events/features/layout/create_event/presentation/widgets/create_new_event_category_item.dart';
 import 'package:events/features/layout/create_event/presentation/widgets/event_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class CreateEventCategoryAndImage extends StatefulWidget {
   const CreateEventCategoryAndImage({super.key});
@@ -33,6 +35,7 @@ class _CreateEventCategoryAndImageState
 
   @override
   Widget build(BuildContext context) {
+    var eventInfo = Provider.of<EventInformation>(context);
     return Column(
       children: [
         Container(
@@ -61,6 +64,7 @@ class _CreateEventCategoryAndImageState
                 onTap: () {
                   setState(() {
                     currentIndex = index;
+                    eventInfo.Index = index;
                   });
 
                   pageController.jumpToPage(currentIndex);

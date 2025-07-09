@@ -1,5 +1,5 @@
-import 'package:events/core/errors/firebase_firestore_exception_handler.dart';
-import 'failure.dart'; // Your existing Failure base class
+import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_exception_handler.dart';
+import '../failure.dart'; // Your existing Failure base class
 
 class FirebaseFirestoreFailureHandler {
   static Failure handle(Exception exception) {

@@ -17,6 +17,6 @@ class LayoutViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var layoutIndex = Provider.of<LayoutIndex>(context);
 
-    return views[layoutIndex.selectedIndex];
+    return IndexedStack(index: layoutIndex.selectedIndex, children: views);
   }
 }

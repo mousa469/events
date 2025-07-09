@@ -1,5 +1,5 @@
 import 'package:events/core/errors/failure.dart';
-import 'package:events/core/errors/firebase_auth_failure_handler.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_failure_handler.dart';
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -21,10 +21,10 @@ abstract class FirebaseAuthFailureMessagesMapper {
       return S.of(context).accountExistsWithDifferentCredential;
     } else if (failure.runtimeType == WrongPasswordFailure) {
       return S.of(context).wrong_password;
+    } else if (failure.runtimeType == NoInternetConnectionFailure) {
+      return S.of(context).no_internet_connection_failure;
     } else {
       return S.of(context).unexpected_error;
     }
   }
 }
-
-

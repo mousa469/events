@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:events/core/errors/firebase_Auth_failure_messages_mapper.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_Auth_failure_messages_mapper.dart';
 import 'package:events/core/services/local_storage.dart';
 import 'package:events/core/services/secure_local_storage.dart';
 import 'package:events/core/utilies/keys.dart';

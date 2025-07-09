@@ -90,7 +90,41 @@
     "UNIMPLEMENTED": "This feature is not available yet.",
     "UNKNOWN": "An unknown error occurred. Please try again.",
       "accountExistsWithDifferentCredential": "An account already exists with the same email address but using a different sign-in method. Please use the correct provider (e.g., Google, Facebook, or email) to log in.",
-        "mohamed_mousa":"mohamed mousa"
+        "mohamed_mousa":"mohamed mousa",
+        "no_internet_connection_failure" : "No internet connection , please check your network" ,
+         "choose_date_required" :"you must choose date for the event" ,
+  "choose_time_required" :"you must choose time for the event" ,
+    "date_time_require" : "you must choose date and time for the event",
+  "location_permission_denied": "Location permission denied.",
+"location_permission_instruction": "Please press the button again and allow location access.",
+"Location_services_denied_instruction" : "Location services denied you should open it Manually from settings",
+  "cancel" : "Cancel",
+"settings" : "Settings",
+"Search_for_your_event_Location" : "Search for your event Location",
+"no_address_found" :"Could not find any result for the supplied address",
+"Press_here_after_tap_your_location" : "Press here after tap your location",
+  "you_should_tap_your_event_location" :"you should tap your event location",
+  "location_service _denied_message" :"your locations service is denied you should open it Manually from settings",
+  "location_permission_message" : "location permission is denied , please open app settings to allow location permission",
+  "event_location_requird" : "Event location required",
+  "event_created_successfully" : "Event created successfully",
+  "name_not_available" : " Name not available",
+          "No_events_added_yet":"No events added yet"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

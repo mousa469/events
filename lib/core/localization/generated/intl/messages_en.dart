@@ -52,8 +52,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "INVALID_ARGUMENT": MessageLookupByLibrary.simpleMessage(
       "Invalid input provided. Please check your data.",
     ),
+    "Location_services_denied_instruction":
+        MessageLookupByLibrary.simpleMessage(
+          "Location services denied you should open it Manually from settings",
+        ),
     "NOT_FOUND": MessageLookupByLibrary.simpleMessage(
       "The requested item was not found.",
+    ),
+    "No_events_added_yet": MessageLookupByLibrary.simpleMessage(
+      "No events added yet",
     ),
     "OK": MessageLookupByLibrary.simpleMessage(
       "Operation completed successfully.",
@@ -64,8 +71,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "PERMISSION_DENIED": MessageLookupByLibrary.simpleMessage(
       "You do not have permission to do this.",
     ),
+    "Press_here_after_tap_your_location": MessageLookupByLibrary.simpleMessage(
+      "Press here after tap your location",
+    ),
     "RESOURCE_EXHAUSTED": MessageLookupByLibrary.simpleMessage(
       "Resource limit reached. Try again later.",
+    ),
+    "Search_for_your_event_Location": MessageLookupByLibrary.simpleMessage(
+      "Search for your event Location",
     ),
     "UNAUTHENTICATED": MessageLookupByLibrary.simpleMessage(
       "You must be logged in to perform this action.",
@@ -89,7 +102,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
     "bookclub": MessageLookupByLibrary.simpleMessage("Book Club"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "choose_date": MessageLookupByLibrary.simpleMessage("Choose Date"),
+    "choose_date_required": MessageLookupByLibrary.simpleMessage(
+      "you must choose date for the event",
+    ),
     "choose_location": MessageLookupByLibrary.simpleMessage(
       "Choose Event Location",
     ),
@@ -97,6 +114,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
     ),
     "choose_time": MessageLookupByLibrary.simpleMessage("Choose Time"),
+    "choose_time_required": MessageLookupByLibrary.simpleMessage(
+      "you must choose time for the event",
+    ),
     "connect_share": MessageLookupByLibrary.simpleMessage(
       "Connect with Friends & Share Moments",
     ),
@@ -105,6 +125,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("Create Account"),
     "create_event": MessageLookupByLibrary.simpleMessage("Create Event"),
+    "date_time_require": MessageLookupByLibrary.simpleMessage(
+      "you must choose date and time for the event",
+    ),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "dont_have_account": MessageLookupByLibrary.simpleMessage(
       "Don’t Have Account?",
@@ -122,11 +145,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "The account already exists for that email.",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "event_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "Event created successfully",
+    ),
     "event_date": MessageLookupByLibrary.simpleMessage("Event Date"),
     "event_description": MessageLookupByLibrary.simpleMessage(
       "Event Description",
     ),
     "event_details": MessageLookupByLibrary.simpleMessage("Event Details"),
+    "event_location_requird": MessageLookupByLibrary.simpleMessage(
+      "Event location required",
+    ),
     "event_time": MessageLookupByLibrary.simpleMessage("Event Time"),
     "event_title": MessageLookupByLibrary.simpleMessage("Event Title"),
     "exhibition": MessageLookupByLibrary.simpleMessage("Exhibition"),
@@ -146,6 +175,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "loading": MessageLookupByLibrary.simpleMessage("loading"),
     "location": MessageLookupByLibrary.simpleMessage("Location"),
+    "location_permission_denied": MessageLookupByLibrary.simpleMessage(
+      "Location permission denied.",
+    ),
+    "location_permission_instruction": MessageLookupByLibrary.simpleMessage(
+      "Please press the button again and allow location access.",
+    ),
+    "location_permission_message": MessageLookupByLibrary.simpleMessage(
+      "location permission is denied , please open app settings to allow location permission",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_google": MessageLookupByLibrary.simpleMessage("Login With Google"),
     "login_with_facebook": MessageLookupByLibrary.simpleMessage(
@@ -157,6 +195,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "meeting": MessageLookupByLibrary.simpleMessage("Meeting"),
     "mohamed_mousa": MessageLookupByLibrary.simpleMessage("mohamed mousa"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "name_not_available": MessageLookupByLibrary.simpleMessage(
+      " Name not available",
+    ),
+    "no_address_found": MessageLookupByLibrary.simpleMessage(
+      "Could not find any result for the supplied address",
+    ),
+    "no_internet_connection_failure": MessageLookupByLibrary.simpleMessage(
+      "No internet connection , please check your network",
+    ),
     "oops": MessageLookupByLibrary.simpleMessage("Oops"),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -174,6 +221,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "search_event": MessageLookupByLibrary.simpleMessage("Search for Event"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "You have signed in successfully.",
     ),
@@ -199,6 +247,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "workshop": MessageLookupByLibrary.simpleMessage("Workshop"),
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "Wrong password provided for that user.",
+    ),
+    "you_should_tap_your_event_location": MessageLookupByLibrary.simpleMessage(
+      "you should tap your event location",
     ),
   };
 }

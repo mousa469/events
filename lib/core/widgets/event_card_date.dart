@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class EventCardDate extends StatelessWidget {
-  const EventCardDate({super.key});
+  const EventCardDate({super.key, required this.date});
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class EventCardDate extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
       height: 70.h,
-      width: 49.w,
+      width: 200.w,
       decoration: BoxDecoration(
         color: theme.isLight ? AppColors.secondaryWhite : Colors.transparent,
         borderRadius: BorderRadius.circular(12.r),
@@ -24,13 +25,13 @@ class EventCardDate extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "21",
+              date,
               style: AppStyles.style20Bold.copyWith(
                 color: AppColors.primaryColor,
               ),
             ),
             Text(
-              "Nov",
+             date,
               style: AppStyles.style14Bold.copyWith(
                 color: AppColors.primaryColor,
               ),

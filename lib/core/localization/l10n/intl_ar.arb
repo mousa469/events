@@ -90,7 +90,38 @@
     "UNIMPLEMENTED": "هذه الميزة غير متوفرة حاليًا.",
     "UNKNOWN": "حدث خطأ غير معروف. الرجاء المحاولة مرة أخرى.",
      "accountExistsWithDifferentCredential": "يوجد حساب مرتبط بالفعل بهذا البريد الإلكتروني ولكن باستخدام طريقة تسجيل دخول مختلفة. يرجى استخدام مزود التسجيل الصحيح (مثل جوجل أو فيسبوك أو البريد الإلكتروني).",
-       "mohamed_mousa":"محمد موسي "
+       "mohamed_mousa":"محمد موسي ",
+       "no_internet_connection_failure" : "لا يوجد اتصال بالانترنت ارجوك افحص  الشبكه " ,
+       
+  "choose_time_required" :"يجب ان تختار وقت للحدث " ,
+  "choose_date_required" :"يجب ان تختار تاريخ للحدث " ,
+    "date_time_require" : "يجب ان تختار تاريخ و وقت للحدث ",
+      "location_permission_denied": "تم رفض إذن الموقع.",
+  "location_permission_instruction": "يرجى الضغط على الزر مرة أخرى والسماح بالوصول إلى الموقع.",
+  "Location_services_denied_instruction" : "تم رفض اذن الوصول الي الموقع . يجب فتحها يدويا من الاعدادات",
+              "cancel" : "اغلق",
+                      "settings" : "الاعدادات",
+                        "Search_for_your_event_Location" : "ابحث عن موقع الحدث ",
+                          "no_address_found" :"لم يتم العثور على أي نتيجة للعنوان المدخل",
+                          "Press_here_after_tap_your_location" : "اضغط هنا بعد اختيار  الموقع ",
+                          "you_should_tap_your_event_location" :"يجب ان تضغط على موقع المناسبة الخاص بك",
+                        "location_service _denied_message" :"خدمة الموقع مرفوضة يجب فتحها يدويا من الاعدادات",
+                        "location_permission_message" : "عذراً لم يتم تفعيل خدمة الموقع, يرجى تفعيلها من الإعدادات",
+                        "event_location_requird" : "موقع الحدث مطلوب",
+                        "event_created_successfully" : "تم انشاء الحدث بنجاح",
+                        "name_not_available" : "الاسم غير متوفر",
+                                "No_events_added_yet":"لا يوجد أحداث حتى الآن"
+
+
+
+
+
+
+
+
+
+
+
 
 
 

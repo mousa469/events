@@ -50,8 +50,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "INVALID_ARGUMENT": MessageLookupByLibrary.simpleMessage(
       "تم إدخال بيانات غير صالحة. الرجاء التحقق من البيانات.",
     ),
+    "Location_services_denied_instruction":
+        MessageLookupByLibrary.simpleMessage(
+          "تم رفض اذن الوصول الي الموقع . يجب فتحها يدويا من الاعدادات",
+        ),
     "NOT_FOUND": MessageLookupByLibrary.simpleMessage(
       "العنصر المطلوب غير موجود.",
+    ),
+    "No_events_added_yet": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد أحداث حتى الآن",
     ),
     "OK": MessageLookupByLibrary.simpleMessage("تم تنفيذ العملية بنجاح."),
     "OUT_OF_RANGE": MessageLookupByLibrary.simpleMessage(
@@ -60,8 +67,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "PERMISSION_DENIED": MessageLookupByLibrary.simpleMessage(
       "ليس لديك الصلاحية لتنفيذ هذا الإجراء.",
     ),
+    "Press_here_after_tap_your_location": MessageLookupByLibrary.simpleMessage(
+      "اضغط هنا بعد اختيار  الموقع ",
+    ),
     "RESOURCE_EXHAUSTED": MessageLookupByLibrary.simpleMessage(
       "تم استهلاك الموارد المتاحة. حاول مرة أخرى لاحقًا.",
+    ),
+    "Search_for_your_event_Location": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن موقع الحدث ",
     ),
     "UNAUTHENTICATED": MessageLookupByLibrary.simpleMessage(
       "يجب تسجيل الدخول لتنفيذ هذا الإجراء.",
@@ -85,7 +98,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "birthday": MessageLookupByLibrary.simpleMessage("عيد ميلاد"),
     "bookclub": MessageLookupByLibrary.simpleMessage("نادي الكتاب"),
+    "cancel": MessageLookupByLibrary.simpleMessage("اغلق"),
     "choose_date": MessageLookupByLibrary.simpleMessage("اختر التاريخ"),
+    "choose_date_required": MessageLookupByLibrary.simpleMessage(
+      "يجب ان تختار تاريخ للحدث ",
+    ),
     "choose_location": MessageLookupByLibrary.simpleMessage(
       "اختر موقع الفعالية",
     ),
@@ -93,6 +110,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر السمة واللغة المفضلة لديك للبدء بتجربة مريحة ومخصصة تناسب أسلوبك.",
     ),
     "choose_time": MessageLookupByLibrary.simpleMessage("اختر الوقت"),
+    "choose_time_required": MessageLookupByLibrary.simpleMessage(
+      "يجب ان تختار وقت للحدث ",
+    ),
     "connect_share": MessageLookupByLibrary.simpleMessage(
       "تواصل مع الأصدقاء وشارك اللحظات",
     ),
@@ -101,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "create_event": MessageLookupByLibrary.simpleMessage("إنشاء فعالية"),
+    "date_time_require": MessageLookupByLibrary.simpleMessage(
+      "يجب ان تختار تاريخ و وقت للحدث ",
+    ),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "dont_have_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "eating": MessageLookupByLibrary.simpleMessage("تناول الطعام"),
@@ -116,9 +139,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
     ),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "event_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم انشاء الحدث بنجاح",
+    ),
     "event_date": MessageLookupByLibrary.simpleMessage("تاريخ الفعالية"),
     "event_description": MessageLookupByLibrary.simpleMessage("وصف الفعالية"),
     "event_details": MessageLookupByLibrary.simpleMessage("تفاصيل الفعالية"),
+    "event_location_requird": MessageLookupByLibrary.simpleMessage(
+      "موقع الحدث مطلوب",
+    ),
     "event_time": MessageLookupByLibrary.simpleMessage("وقت الفعالية"),
     "event_title": MessageLookupByLibrary.simpleMessage("عنوان الفعالية"),
     "exhibition": MessageLookupByLibrary.simpleMessage("معرض"),
@@ -138,6 +167,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل "),
     "location": MessageLookupByLibrary.simpleMessage("الموقع"),
+    "location_permission_denied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض إذن الموقع.",
+    ),
+    "location_permission_instruction": MessageLookupByLibrary.simpleMessage(
+      "يرجى الضغط على الزر مرة أخرى والسماح بالوصول إلى الموقع.",
+    ),
+    "location_permission_message": MessageLookupByLibrary.simpleMessage(
+      "عذراً لم يتم تفعيل خدمة الموقع, يرجى تفعيلها من الإعدادات",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_google": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول باستخدام جوجل",
@@ -151,6 +189,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "meeting": MessageLookupByLibrary.simpleMessage("اجتماع"),
     "mohamed_mousa": MessageLookupByLibrary.simpleMessage("محمد موسي "),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+    "name_not_available": MessageLookupByLibrary.simpleMessage(
+      "الاسم غير متوفر",
+    ),
+    "no_address_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على أي نتيجة للعنوان المدخل",
+    ),
+    "no_internet_connection_failure": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد اتصال بالانترنت ارجوك افحص  الشبكه ",
+    ),
     "oops": MessageLookupByLibrary.simpleMessage("عذرًا"),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -170,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "إعادة تعيين كلمة المرور",
     ),
     "search_event": MessageLookupByLibrary.simpleMessage("ابحث عن فعالية"),
+    "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "لقد سجلت الدخول بنجاح.",
     ),
@@ -195,6 +243,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "workshop": MessageLookupByLibrary.simpleMessage("ورشة عمل"),
     "wrong_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور المقدمة غير صحيحة لهذا المستخدم.",
+    ),
+    "you_should_tap_your_event_location": MessageLookupByLibrary.simpleMessage(
+      "يجب ان تضغط على موقع المناسبة الخاص بك",
     ),
   };
 }

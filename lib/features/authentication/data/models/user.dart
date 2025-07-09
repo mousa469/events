@@ -1,3 +1,5 @@
+import 'package:events/core/utilies/keys.dart';
+
 class UserModel {
   final String userID;
   final String email;
@@ -7,14 +9,14 @@ class UserModel {
 
   factory UserModel.fromJson({required Map<String, dynamic> json}) {
     return UserModel(
-      userID: json["userID"],
-      email: json["email"],
-      name: json["name"],
+      userID: json[Keys.userID],
+      email: json[Keys.userEmail],
+      name: json[Keys.userName],
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {"userID": userID, "email": email, "name": name};
+    return {Keys.userID: userID,Keys.userEmail: email, Keys.userName: name};
   }
 
 

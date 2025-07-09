@@ -1,12 +1,12 @@
 import 'dart:developer';
 import 'package:events/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:events/features/authentication/presentation/views/sign_up_view.dart';
+import 'package:events/features/layout/choose_event_location/presentation/views/choose_event_location_view.dart';
 import 'package:events/features/layout/create_event/presentation/views/create_event_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:events/features/on_boarding/presentation/views/welcome_view.dart';
 import 'package:events/features/layout/home/presentation/views/home_view.dart';
-import 'package:events/test_paint_view.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {
@@ -43,10 +43,10 @@ abstract class AppRouter {
             return HomeView();
           },
         );
-      case TestPaintView.id:
+      case ChooseEventLocationView.id:
         return MaterialPageRoute(
           builder: (context) {
-            return TestPaintView();
+            return ChooseEventLocationView();
           },
         );
       case LayoutView.id:

@@ -1,5 +1,5 @@
 import 'package:events/core/errors/failure.dart';
-import 'package:events/core/errors/firebase_auth_exception_handler.dart';
+import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_exception_handler.dart';
 
 class FirebaseAuthFailureHandler {
   static Failure handle({required Exception exception}) {
@@ -20,6 +20,8 @@ class FirebaseAuthFailureHandler {
         return WrongPasswordFailure();
       case AccountAlreadyExistsWithDifferentCredentialException():
         return AccountAlreadyExistsWithDifferentCredentialsFailure();
+
+        
 
      
 

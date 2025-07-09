@@ -1,5 +1,5 @@
 abstract class DatabaseServices {
-  void addRecord({
+  Future<void> addRecord({
     required String path,
     String? id,
     required Map<String, dynamic> data,
@@ -17,7 +17,6 @@ abstract class DatabaseServices {
   Future<Map<String, dynamic>> fetchRecord({
     required String path,
     required String id,
-    required String,
     String? subCollectionPath,
     String? subCollectionID,
   });
@@ -26,5 +25,14 @@ abstract class DatabaseServices {
     required String path,
     required String id,
     String? subCollectionPath,
+  });
+
+  Future<List<Map<String, dynamic>>> fetchGroupOfRecordsSorted({
+    required String path,
+    required String id,
+    String? subCollectionPath,
+    required String sortBy,
+      required bool isDescending 
+
   });
 }

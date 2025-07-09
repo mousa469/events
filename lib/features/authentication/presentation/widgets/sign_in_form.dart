@@ -2,7 +2,7 @@ import 'package:events/core/extensions/routing_extension.dart';
 import 'package:events/core/widgets/custom_snack_bar.dart';
 import 'package:events/features/authentication/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
 import 'package:events/features/authentication/presentation/views/sign_up_view.dart';
-import 'package:events/features/layout/home/presentation/views/home_view.dart';
+import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
@@ -60,7 +60,8 @@ class _SignInFormState extends State<SignInForm> {
               subTitle: S.of(context).signInSuccess,
               context: context,
             );
-            context.pushAndRemoveUntil(routeName: HomeView.id);
+
+            context.pushAndRemoveUntil(routeName: LayoutView.id);
 
             return;
           }
@@ -80,7 +81,7 @@ class _SignInFormState extends State<SignInForm> {
           children: [
             CustomTextField(
               controller: emailController,
-              prefixIcon: Icon(Icons.email,),
+              prefixIcon: Icon(Icons.email),
               hint: S.of(context).email,
             ),
             SizedBox(height: 16.h),
@@ -88,7 +89,7 @@ class _SignInFormState extends State<SignInForm> {
               controller: passwordController,
               isPassword: true,
 
-              prefixIcon: Icon(Icons.lock,),
+              prefixIcon: Icon(Icons.lock),
               hint: S.of(context).password,
             ),
 

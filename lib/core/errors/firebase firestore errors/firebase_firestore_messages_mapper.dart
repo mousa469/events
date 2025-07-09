@@ -1,6 +1,6 @@
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:flutter/widgets.dart';
-import 'failure.dart';
+import '../failure.dart';
 import 'firebase_firestore_failure_handler.dart'; // if needed
 
 abstract class FirebaseFirestoreFailureMessagesMapper {
@@ -40,6 +40,8 @@ abstract class FirebaseFirestoreFailureMessagesMapper {
       return S.of(context).UNAVAILABLE;
     } else if (failure.runtimeType == UnimplementedFailure) {
       return S.of(context).UNIMPLEMENTED;
+    } else if (failure.runtimeType == NoInternetConnectionFailure) {
+      return S.of(context).no_internet_connection_failure;
     } else {
       return S.of(context).unexpected_error;
     }
