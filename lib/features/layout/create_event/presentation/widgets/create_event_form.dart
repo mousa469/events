@@ -9,7 +9,7 @@ import 'package:events/core/widgets/field_label.dart';
 import 'package:events/features/layout/create_event/data/models/event.dart';
 import 'package:events/features/layout/create_event/presentation/cubits/create_event/create_event_cubit.dart';
 import 'package:events/features/layout/create_event/presentation/widgets/event_info.dart';
-import 'package:events/features/layout/home/data/cubits/fetch_user_events.dart/fetch_user_events_cubit.dart';
+import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:events/core/extensions/padding_extension.dart';
 import 'package:events/core/widgets/custom_text_form_field.dart';

@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "DEADLINE_EXCEEDED": MessageLookupByLibrary.simpleMessage(
       "The operation took too long to complete. Please try again.",
     ),
+    "Event_added_to_favorites_successfully":
+        MessageLookupByLibrary.simpleMessage(
+          " Event added to favorites successfully",
+        ),
     "FAILED_PRECONDITION": MessageLookupByLibrary.simpleMessage(
       "The system is not ready to perform this action.",
     ),

@@ -109,7 +109,10 @@
   "event_location_requird" : "Event location required",
   "event_created_successfully" : "Event created successfully",
   "name_not_available" : " Name not available",
-          "No_events_added_yet":"No events added yet"
+          "No_events_added_yet":"No events added yet",
+                  "Event_added_to_favorites_successfully":" Event added to favorites successfully",
+                  
+
 
 
 

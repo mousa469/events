@@ -950,6 +950,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم إضافة الحدث إلى المفضلة بنجاح`
+  String get Event_added_to_favorites_successfully {
+    return Intl.message(
+      'تم إضافة الحدث إلى المفضلة بنجاح',
+      name: 'Event_added_to_favorites_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

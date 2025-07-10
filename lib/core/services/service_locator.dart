@@ -13,7 +13,7 @@ import 'package:events/features/layout/create_event/data/data_sources/remote_dat
 import 'package:events/features/layout/create_event/data/repos/create_event_repo_imp.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_local_data_source.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_remote_data_source.dart';
-import 'package:events/features/layout/home/data/cubits/fetch_user_events.dart/fetch_user_events_cubit.dart';
+import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
 import 'package:events/features/layout/home/data/repos/home_repo_imp.dart';
 import 'package:get_it/get_it.dart';
 

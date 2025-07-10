@@ -126,8 +126,6 @@ class FirestoreServices extends DatabaseServices {
 
         return records;
       } else {
-
-        
         var records = await firebaseFirestore
             .collection(path)
             .doc(id)
@@ -149,48 +147,76 @@ class FirestoreServices extends DatabaseServices {
       throw UnExpectedException();
     }
   }
-  
-@override
-Future<List<Map<String, dynamic>>> fetchGroupOfRecordsSorted({
-  required String path,
-  required String id,
-  required String sortBy,
-  String? subCollectionPath,
-  required bool isDescending 
-}) async {
-  try {
-    if (subCollectionPath == null) {
-      Query<Map<String, dynamic>> query = firebaseFirestore.collection(path).orderBy(sortBy, descending: true);
 
-      var records = await query
-          .get()
-          .then((value) => value.docs.map((e) => e.data()).toList());
+  @override
+  Future<List<Map<String, dynamic>>> fetchGroupOfRecordsSorted({
+    required String path,
+    required String id,
+    required String sortBy,
+    String? subCollectionPath,
+    required bool isDescending,
+  }) async {
+    try {
+      if (subCollectionPath == null) {
+        Query<Map<String, dynamic>> query = firebaseFirestore
+            .collection(path)
+            .orderBy(sortBy, descending: true);
 
-      return records;
-    } else {
-      Query<Map<String, dynamic>> query = firebaseFirestore
-          .collection(path)
-          .doc(id)
-          .collection(subCollectionPath)
-          .orderBy(sortBy, descending: isDescending);
+        var records = await query.get().then(
+          (value) => value.docs.map((e) => e.data()).toList(),
+        );
 
-      var records = await query
-          .get()
-          .then((value) => value.docs.map((e) => e.data()).toList());
+        return records;
+      } else {
+        Query<Map<String, dynamic>> query = firebaseFirestore
+            .collection(path)
+            .doc(id)
+            .collection(subCollectionPath)
+            .orderBy(sortBy, descending: isDescending);
 
-      return records;
+        var records = await query.get().then(
+          (value) => value.docs.map((e) => e.data()).toList(),
+        );
+
+        return records;
+      }
+    } on FirebaseException catch (e) {
+      log("firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      CustomFirebaseFirestoreException.handle(e);
+      rethrow;
+    } catch (e) {
+      log("general exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      throw UnExpectedException();
     }
-  } on FirebaseException catch (e) {
-    log(
-      "firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}",
-    );
-    CustomFirebaseFirestoreException.handle(e);
-    rethrow;
-  } catch (e) {
-    log(
-      "general exception from fetchGroupOfRecordsSorted: ${e.toString()}",
-    );
-    throw UnExpectedException();
   }
-}
+
+  @override
+  Future<void> updateRecord({
+    required String key,
+    required String path,
+    String? id,
+    required dynamic data,
+    String? subCollectionPath,
+    String? subCollectionID,
+  }) async {
+    try {
+      if (subCollectionPath == null && subCollectionID == null) {
+        await firebaseFirestore.collection(path).doc(id).update({"$key": data});
+      } else {
+        await firebaseFirestore
+            .collection(path)
+            .doc(id)
+            .collection(subCollectionPath!)
+            .doc(subCollectionID)
+            .update({"$key": data});
+      }
+    } on FirebaseException catch (e) {
+      log("firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      CustomFirebaseFirestoreException.handle(e);
+      rethrow;
+    } catch (e) {
+      log("general exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      throw UnExpectedException();
+    }
+  }
 }

@@ -28,7 +28,7 @@ class EventCard extends StatelessWidget {
           ),
 
           EventCardDate(date: event.date),
-          EventCardTitle(title: event.title,),
+          EventCardTitle(title: event.title, isFavorite: event.isfavourite, eventId: event.id!,),
         ],
       ),
     );

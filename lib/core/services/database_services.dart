@@ -32,7 +32,15 @@ abstract class DatabaseServices {
     required String id,
     String? subCollectionPath,
     required String sortBy,
-      required bool isDescending 
+    required bool isDescending,
+  });
 
+  Future<void> updateRecord({
+    required String key,
+    required String path,
+    String? id,
+   required dynamic data,
+    String? subCollectionPath,
+    String? subCollectionID,
   });
 }

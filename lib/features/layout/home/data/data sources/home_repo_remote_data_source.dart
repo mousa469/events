@@ -11,6 +11,7 @@ import 'package:events/features/layout/create_event/data/models/event.dart';
 abstract class HomeRepoRemoteDataSource {
   Future<String> fetchUserName();
   Future<List<Event>> fetchUserEvents();
+  Future<void> addEventToFavourites({required String eventId});
 }
 
 class HomeRepoRemoteDataSourceImpl extends HomeRepoRemoteDataSource {
@@ -49,7 +50,26 @@ class HomeRepoRemoteDataSourceImpl extends HomeRepoRemoteDataSource {
           );
 
       return RemoteEvents.map((e) => Event.fromJson(e)).toList();
-    } on CustomFirebaseFirestoreException  {
+    } on CustomFirebaseFirestoreException {
+      rethrow;
+    } catch (e) {
+      log(e.toString());
+      throw UnExpectedException();
+    }
+  }
+
+  @override
+  Future<void> addEventToFavourites({required String eventId}) async {
+    try {
+      await databaseServices.updateRecord(
+        path: Endpoints.usersEndpoint,
+        id: await secureLocalStorage.getData(key: Keys.userID),
+        key: Keys.isFavourite,
+        subCollectionPath: Endpoints.userEvents,
+        data: true,
+        subCollectionID: eventId,
+      );
+    } on CustomFirebaseFirestoreException {
       rethrow;
     } catch (e) {
       log(e.toString());

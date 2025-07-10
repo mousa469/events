@@ -68,4 +68,21 @@ class HomeRepoImp extends HomeRepo {
       return Left(UnExpectedFailure());
     }
   }
+
+  Future<Either<Failure, Unit>> addEventToFavourites({
+    required String eventId,
+  }) async {
+    try {
+      if (await networkChecker.hasInternetConnection()) {
+        await homeRepoRemoteDataSource.addEventToFavourites(eventId: eventId);
+      } else {
+        // TODO : add event to favorites is offline mode
+      }
+      return Right(unit);
+    } on CustomFirebaseFirestoreException catch (e) {
+      return Left(FirebaseFirestoreFailureHandler.handle(e));
+    } on UnExpectedException {
+      return Left(UnExpectedFailure());
+    }
+  }
 }

@@ -27,7 +27,6 @@ class CreateEventRepoImp extends CreateEventRepo {
         createEventRemoteDataSource.addEvent(event: event);
       } else {
         createEventLocalDataSource.addEventInOfflineMode(event: event);
-        log( "Event added in offline mode");
       }
 
       return Right(unit);
