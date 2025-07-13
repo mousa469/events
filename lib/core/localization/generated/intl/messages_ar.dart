@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "DEADLINE_EXCEEDED": MessageLookupByLibrary.simpleMessage(
       "استغرقت العملية وقتًا طويلاً. الرجاء المحاولة مرة أخرى.",
     ),
+    "Event_added_to_favorites_successfully":
+        MessageLookupByLibrary.simpleMessage(
+          "تم إضافة الحدث إلى المفضلة بنجاح",
+        ),
     "FAILED_PRECONDITION": MessageLookupByLibrary.simpleMessage(
       "النظام غير جاهز لتنفيذ هذا الإجراء.",
     ),
@@ -147,6 +151,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "event_details": MessageLookupByLibrary.simpleMessage("تفاصيل الفعالية"),
     "event_location_requird": MessageLookupByLibrary.simpleMessage(
       "موقع الحدث مطلوب",
+    ),
+    "event_removed_from_Favorite": MessageLookupByLibrary.simpleMessage(
+      "تم حذف الحدث من المفضله",
     ),
     "event_time": MessageLookupByLibrary.simpleMessage("وقت الفعالية"),
     "event_title": MessageLookupByLibrary.simpleMessage("عنوان الفعالية"),

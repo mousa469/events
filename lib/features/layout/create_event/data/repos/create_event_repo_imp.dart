@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:events/core/errors/failure.dart';
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_exception_handler.dart';
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_failure_handler.dart';
 import 'package:events/core/services/network_checker_interface.dart';
 import 'package:events/features/layout/create_event/data/data_sources/create_event_local_data_source.dart';
-import 'package:events/features/layout/create_event/data/data_sources/remote_data_source.dart';
+import 'package:events/features/layout/create_event/data/data_sources/create_event_remote_data_source.dart';
 import 'package:events/features/layout/create_event/data/models/event.dart';
 import 'package:events/features/layout/create_event/data/repos/create_event_repo.dart';
 

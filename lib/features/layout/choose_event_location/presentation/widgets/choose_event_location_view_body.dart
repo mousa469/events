@@ -1,23 +1,16 @@
-import 'dart:async';
-import 'dart:developer';
-
-import 'package:events/core/extensions/padding_extension.dart';
 import 'package:events/core/extensions/routing_extension.dart';
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
 import 'package:events/core/utilies/event_info.dart';
-import 'package:events/core/widgets/app_settings_dialog.dart';
 import 'package:events/core/widgets/custom_snack_bar.dart';
-import 'package:events/core/widgets/custom_text_form_field.dart';
 import 'package:events/features/layout/choose_event_location/presentation/get_current_location_cubit/get_current_location_cubit.dart';
 import 'package:events/features/layout/choose_event_location/presentation/user_search_location_cubit/user_search_location_cubit.dart';
+import 'package:events/features/layout/choose_event_location/presentation/widgets/user_search_location_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class ChooseEventLocationViewBody extends StatefulWidget {
@@ -30,87 +23,110 @@ class ChooseEventLocationViewBody extends StatefulWidget {
 
 class _ChooseEventLocationViewBodyState
     extends State<ChooseEventLocationViewBody> {
-  late MapController mapController;
   LatLng userCurrentLocation = LatLng(0, 0);
-  late TextEditingController locationController;
-  List<Marker> markers = [];
-  LatLng? onUserTapCoordinates;
-
-  Timer? debounce;
-
-  void onSearchChanged(String? address) {
-    if (debounce?.isActive ?? false) debounce?.cancel();
-    debounce = Timer(const Duration(seconds: 1), () {
-      if (address == null || address.isEmpty) {
-        log("empty string");
-      } else {
-        BlocProvider.of<UserSearchLocationCubit>(
-          context,
-        ).userSearchLocation(address: address, context: context);
-      }
-    });
-  }
+  LatLng? userSelectedLocation;
+  Set<Marker> markers = {};
+  late CameraPosition initialCameraPosition;
+  late GoogleMapController mapController;
 
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<GetCurrentLocationCubit>(
-      context,
-    ).getUserCurrentLocation(context: context);
-    mapController = MapController();
-    locationController = TextEditingController();
+    initialCameraPosition = CameraPosition(
+      target: userCurrentLocation,
+      zoom: 10,
+    );
   }
 
   @override
   void dispose() {
     super.dispose();
     mapController.dispose();
-    locationController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    var eventInfo = Provider.of<EventInformation>(context , listen: false);
+    var eventInfo = Provider.of<EventInformation>(context);
     return Stack(
       children: [
-        MultiBlocListener(
-          listeners: [
-            BlocListener<GetCurrentLocationCubit, GetCurrentLocationState>(
-              listener: (context, state) {
-                if (state is GetCurrentLocationSuccess) {
-                  var values = state.userLocation;
-                  userCurrentLocation = LatLng(
-                    values.latitude,
-                    values.longtude,
+        BlocConsumer<GetCurrentLocationCubit, GetCurrentLocationState>(
+          listener: (context, state) {
+            if (state is GetCurrentLocationSuccess) {
+              var userCurrentLocation = LatLng(
+                state.userLocation.latitude,
+                state.userLocation.longtude,
+              );
+              mapController.animateCamera(
+                CameraUpdate.newLatLngZoom(userCurrentLocation, 16),
+              );
+            } else if (state is GetCurrentLocationFailure) {
+              CustomSnackBar(
+                type: SnackBarType.failure,
+                title: S.of(context).oops,
+                subTitle: state.errMessage,
+                context: context,
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is GetCurrentLocationSuccess) {
+              markers.add(
+                Marker(
+                  position: LatLng(
+                    state.userLocation.latitude,
+                    state.userLocation.longtude,
+                  ),
+                  markerId: MarkerId("1"),
+                  icon: BitmapDescriptor.defaultMarker,
+                ),
+              );
+            }
+            return GoogleMap(
+              onTap: (argument) {
+                userSelectedLocation = argument;
+                setState(() {
+                  markers.clear();
+                  markers.add(
+                    Marker(
+                      position: userSelectedLocation!,
+                      markerId: MarkerId("2"),
+                      icon: BitmapDescriptor.defaultMarkerWithHue(
+                        BitmapDescriptor.hueBlue,
+                      ),
+                    ),
                   );
-                  mapController.move(userCurrentLocation, 16);
-                }
-
-                if (state is GetCurrentLocationFailure) {
-                  CustomSnackBar(
-                    type: SnackBarType.failure,
-                    title: S.of(context).oops,
-                    subTitle: state.errMessage,
-                    context: context,
-                  );
-                }
-
-                if (state is GetCurrentLocationPermissionDeniedForEver) {
-                  showAppSettingsDialog(context: context);
-                }
+                });
               },
-            ),
+              zoomControlsEnabled: false,
+              markers: markers,
 
+              initialCameraPosition: initialCameraPosition,
+              onMapCreated: (controller) {
+                mapController = controller;
+                BlocProvider.of<GetCurrentLocationCubit>(
+                  context,
+                ).getUserCurrentLocation(context: context);
+              },
+            );
+          },
+        ),
+
+        // Search field overlay
+        Column(
+          children: [
+            //////////////////////////////
             BlocListener<UserSearchLocationCubit, UserSearchLocationState>(
               listener: (context, state) {
                 if (state is UserSearchLocationSuccess) {
                   for (int i = 0; i < state.locations.length; i++) {
-                    mapController.move(
-                      LatLng(
-                        state.locations[i].latitude,
-                        state.locations[i].longtude,
+                    mapController.animateCamera(
+                      CameraUpdate.newLatLngZoom(
+                        LatLng(
+                          state.locations[i].latitude,
+                          state.locations[i].longtude,
+                        ),
+                        16,
                       ),
-                      16,
                     );
                   }
                 } else if (state is UserSearchLocationFailure) {
@@ -122,60 +138,13 @@ class _ChooseEventLocationViewBodyState
                   );
                 }
               },
+              child: UserSearchLocationTextField(),
             ),
-          ],
-          child: FlutterMap(
-            options: MapOptions(
-              onTap: (tapPosition, point) {
-                onUserTapCoordinates = point;
-                setState(() {
-                  markers.clear();
-                  markers.add(
-                    Marker(
-                      height: 100,
-                      width: 100,
-                      point: onUserTapCoordinates!,
-                      child: Icon(Icons.location_on, color: Colors.red),
-                    ),
-                  );
-                });
-              },
-              initialCenter: LatLng(0, 0),
-              initialZoom: 2,
-              maxZoom: 100,
-              minZoom: 0,
-            ),
-            mapController: mapController,
-            children: [
-              TileLayer(
-                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-              ),
-              CurrentLocationLayer(
-                style: LocationMarkerStyle(
-                  markerSize: Size(35.w, 35.h),
-                  marker: DefaultLocationMarker(
-                    child: Icon(Icons.location_on, color: Colors.white),
-                  ),
-                ),
-              ),
-              MarkerLayer(markers: markers),
-            ],
-          ),
-        ),
-
-        // Search field overlay
-        Column(
-          children: [
-            CustomTextField(
-              fillColor: AppColors.white,
-              controller: locationController,
-              hint: S.of(context).Search_for_your_event_Location,
-              onChanged: onSearchChanged,
-            ).symmetricPadding(horizontalValue: 16.w, verticalValue: 20.h),
+            /////////////////////////////
             Spacer(),
             InkWell(
               onTap: () {
-                if (onUserTapCoordinates == null) {
+                if (userSelectedLocation == null) {
                   CustomSnackBar(
                     type: SnackBarType.warning,
                     title: S.of(context).warning,
@@ -183,8 +152,8 @@ class _ChooseEventLocationViewBodyState
                     context: context,
                   );
                 } else {
-                  eventInfo.eventLat = onUserTapCoordinates!.latitude;
-                  eventInfo.eventLong = onUserTapCoordinates!.longitude;
+                  eventInfo.eventLat = userSelectedLocation!.latitude;
+                  eventInfo.eventLong = userSelectedLocation!.longitude;
                   context.pop();
                 }
               },
@@ -210,3 +179,29 @@ class _ChooseEventLocationViewBodyState
     );
   }
 }
+
+
+      // BlocListener<UserSearchLocationCubit, UserSearchLocationState>(
+      //         listener: (context, state) {
+      //           if (state is UserSearchLocationSuccess) {
+      //             for (int i = 0; i < state.locations.length; i++) {
+      //               mapController.animateCamera(
+      //                 CameraUpdate.newLatLngZoom(
+      //                   LatLng(
+      //                     state.locations[i].latitude,
+      //                     state.locations[i].longtude,
+      //                   ),
+      //                   16,
+      //                 ),
+      //               );
+      //             }
+      //           } else if (state is UserSearchLocationFailure) {
+      //             CustomSnackBar(
+      //               type: SnackBarType.failure,
+      //               title: S.of(context).oops,
+      //               subTitle: state.errMessage,
+      //               context: context,
+      //             );
+      //           }
+      //         },
+      //       ),

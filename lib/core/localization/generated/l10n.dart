@@ -951,11 +951,21 @@ class S {
     );
   }
 
-  /// `تم إضافة الحدث إلى المفضلة بنجاح`
+  /// ` Event added to favorites successfully`
   String get Event_added_to_favorites_successfully {
     return Intl.message(
-      'تم إضافة الحدث إلى المفضلة بنجاح',
+      ' Event added to favorites successfully',
       name: 'Event_added_to_favorites_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Event removed from favourites successfully`
+  String get event_removed_from_Favorite {
+    return Intl.message(
+      ' Event removed from favourites successfully',
+      name: 'event_removed_from_Favorite',
       desc: '',
       args: [],
     );

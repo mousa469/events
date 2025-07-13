@@ -39,8 +39,16 @@ abstract class DatabaseServices {
     required String key,
     required String path,
     String? id,
-   required dynamic data,
+    required dynamic data,
     String? subCollectionPath,
     String? subCollectionID,
+  });
+
+  Future<List<Map<String, dynamic>>> fetchGroupOfDataEqualTo({
+    required String path,
+    required String id,
+    String? subCollectionPath,
+    required String key,
+    dynamic isEqualTo,
   });
 }

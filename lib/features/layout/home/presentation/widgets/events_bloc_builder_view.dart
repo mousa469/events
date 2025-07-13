@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
@@ -18,11 +17,10 @@ class _EventsListViewState extends State<EventsBLocBuilder> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      BlocProvider.of<FetchUserEventsCubit>(
-        context,
-      ).fetchUserEvents(context: context);
-    });
+
+    BlocProvider.of<FetchUserEventsCubit>(
+      context,
+    ).fetchUserEvents(context: context);
   }
 
   @override
@@ -30,14 +28,10 @@ class _EventsListViewState extends State<EventsBLocBuilder> {
     return BlocBuilder<FetchUserEventsCubit, FetchUserEventsState>(
       builder: (context, state) {
         if (state is FetchUserEventsSuccessfully) {
-          log("FetchUserEventsSuccessfully state is triggered ");
           return EventsListView(events: state.events);
         } else if (state is FetchUserEventsFailure) {
-          log("FetchUserEventsFailure state is triggered ");
           return Center(child: Text(state.errMessage));
         } else if (state is FetchUserEventsSuccessfullyButEmpty) {
-          log("FetchUserEventsSuccessfullyButEmpty state is triggered ");
-          ///////////////////////////////////
           return Expanded(
             child: Center(
               child: Text(
@@ -49,7 +43,6 @@ class _EventsListViewState extends State<EventsBLocBuilder> {
             ),
           );
         } else {
-          log("Loading state is triggered ");
           return Expanded(
             child: const Center(child: CircularProgressIndicator()),
           );

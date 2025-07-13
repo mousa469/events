@@ -111,6 +111,8 @@
   "name_not_available" : " Name not available",
           "No_events_added_yet":"No events added yet",
                   "Event_added_to_favorites_successfully":" Event added to favorites successfully",
+                  "event_removed_from_Favorite" : " Event removed from favourites successfully"
+
                   
 
 

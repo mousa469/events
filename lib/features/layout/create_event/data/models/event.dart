@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:events/core/utilies/keys.dart';
 import 'package:hive/hive.dart';
 
@@ -30,15 +29,15 @@ class Event extends HiveObject {
   @HiveField(7)
   bool isfavourite;
 
-
   @HiveField(8)
   String createdAt;
 
-
-
+  @HiveField(9)
+  String time;
 
   Event({
-   required this.createdAt, 
+    required this.time,
+    required this.createdAt,
     this.isfavourite = false,
     this.id,
     required this.category,
@@ -51,6 +50,7 @@ class Event extends HiveObject {
 
   Map<String, dynamic> toJson() {
     return {
+      Keys.time : time,
       Keys.createdAt: createdAt,
       Keys.isFavourite: isfavourite,
       Keys.id: id,
@@ -65,9 +65,10 @@ class Event extends HiveObject {
 
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
+      time:json[Keys.time] ,
       createdAt: json[Keys.createdAt],
       isfavourite: json[Keys.isFavourite],
-      id: json[ Keys.id],
+      id: json[Keys.id],
       category: json[Keys.category],
       title: json[Keys.title],
       description: json[Keys.description],
@@ -76,8 +77,4 @@ class Event extends HiveObject {
       long: (json[Keys.long] as num).toDouble(),
     );
   }
-
-
-
-  
 }

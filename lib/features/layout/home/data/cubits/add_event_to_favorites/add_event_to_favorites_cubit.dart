@@ -10,12 +10,16 @@ class AddEventToFavoritesCubit extends Cubit<AddEventToFavoritesState> {
     : super(AddEventToFavoritesInitial());
 
   HomeRepo homeRepo;
+  bool isLoading = false;
 
   void addEventToRepo({
     required String eventId,
     required BuildContext context,
   }) async {
+    if (isLoading) return;
     emit(AddEventToFavoritesLoading());
+    isLoading = true;
+
     var result = await homeRepo.addEventToFavourites(eventId: eventId);
 
     result.fold(
@@ -28,9 +32,11 @@ class AddEventToFavoritesCubit extends Cubit<AddEventToFavoritesState> {
             ),
           ),
         );
+        isLoading = false;
       },
       (success) {
         emit(AddEventToFavoritesSuccess());
+        isLoading = false;
       },
     );
   }

@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:events/core/extensions/routing_extension.dart';
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
@@ -6,10 +9,10 @@ import 'package:events/core/widgets/custom_elevated_button.dart';
 import 'package:events/core/widgets/custom_snack_bar.dart';
 import 'package:events/core/widgets/event_location_button.dart';
 import 'package:events/core/widgets/field_label.dart';
+import 'package:events/features/layout/choose_event_location/presentation/views/choose_event_location_view.dart';
 import 'package:events/features/layout/create_event/data/models/event.dart';
 import 'package:events/features/layout/create_event/presentation/cubits/create_event/create_event_cubit.dart';
 import 'package:events/features/layout/create_event/presentation/widgets/event_info.dart';
-import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:events/core/extensions/padding_extension.dart';
 import 'package:events/core/widgets/custom_text_form_field.dart';
@@ -126,6 +129,8 @@ class _CreateEventFormState extends State<CreateEventForm> {
                   time.minute,
                 );
                 final formattedTime = DateFormat('hh:mma').format(dateTime);
+                log("time : ${formattedTime} ");
+
                 setState(() {
                   chooseTime = formattedTime;
                 });
@@ -135,7 +140,12 @@ class _CreateEventFormState extends State<CreateEventForm> {
           ),
           SizedBox(height: 18.h),
           FieldLabel(label: S.of(context).location),
-          EventLocationButton(title: S.of(context).choose_location),
+          InkWell(
+            onTap: () {
+              context.pushNamed(routeName: ChooseEventLocationView.id);
+            },
+            child: EventLocationButton(title: S.of(context).choose_location),
+          ),
           SizedBox(height: 16.h),
           CustomElevatedButton(
             title: S.of(context).add_event,
@@ -168,6 +178,7 @@ class _CreateEventFormState extends State<CreateEventForm> {
 
     BlocProvider.of<CreateEventCubit>(context).createEvent(
       event: Event(
+        time: chooseTime!,
         createdAt: DateTime.now().toString(),
         category: eventInfo.chooseCategory(),
         title: eventTitle.text,
@@ -178,8 +189,6 @@ class _CreateEventFormState extends State<CreateEventForm> {
       ),
       context: context,
     );
-
-
 
     eventTitle.clear();
     eventDescription.clear();

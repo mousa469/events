@@ -6,6 +6,7 @@ abstract class Keys {
   static const String isAthenticatedBefore = "isOnBoardingSeenBefore";
   static const String eventsList = "eventsList";
   static const String eventsListInOfflineMode = "eventsList";
+  static const String OfflineEventsList = "OfflineEventsList";
   static const String All = "All";
   static const String sport = "Sport";
   static const String Birthday = "Birthday";
@@ -22,6 +23,9 @@ abstract class Keys {
   static const String date = "date";
   static const String lat = "lat";
   static const String long = "long";
+  static const String time = "time";
+  static const String favouriteEvents = "favouriteEvents";
+  static const String favouriteEventsInOfflineMode = "favouriteEventsInOfflineMode";
 
 
   

@@ -3,6 +3,7 @@ import 'package:events/features/authentication/presentation/views/sign_in_view.d
 import 'package:events/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:events/features/layout/choose_event_location/presentation/views/choose_event_location_view.dart';
 import 'package:events/features/layout/create_event/presentation/views/create_event_view.dart';
+import 'package:events/features/layout/event_details/presentation/views/event_details_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:events/features/on_boarding/presentation/views/welcome_view.dart';
@@ -17,6 +18,15 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return WelcomeView();
+          },
+        );
+      case EventDetailsView.id:
+        return MaterialPageRoute(
+          settings: RouteSettings(
+            arguments: settings.arguments,
+          ) ,
+          builder: (context) {
+            return EventDetailsView();
           },
         );
       case SignUpView.id:

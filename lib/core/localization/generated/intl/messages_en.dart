@@ -160,6 +160,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "event_location_requird": MessageLookupByLibrary.simpleMessage(
       "Event location required",
     ),
+    "event_removed_from_Favorite": MessageLookupByLibrary.simpleMessage(
+      " Event removed from favourites successfully",
+    ),
     "event_time": MessageLookupByLibrary.simpleMessage("Event Time"),
     "event_title": MessageLookupByLibrary.simpleMessage("Event Title"),
     "exhibition": MessageLookupByLibrary.simpleMessage("Exhibition"),

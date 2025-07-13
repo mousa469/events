@@ -18,7 +18,7 @@ class CreateEventLocalDataSourceImpl extends CreateEventLocalDataSource {
   @override
   Future<void> addEventInOfflineMode({required Event event}) async {
     await localStorage.setValueInList(
-      key: Keys.eventsListInOfflineMode,
+      key: Keys.OfflineEventsList,
       value: event,
     );
   }

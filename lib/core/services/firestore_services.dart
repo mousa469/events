@@ -160,7 +160,7 @@ class FirestoreServices extends DatabaseServices {
       if (subCollectionPath == null) {
         Query<Map<String, dynamic>> query = firebaseFirestore
             .collection(path)
-            .orderBy(sortBy, descending: true);
+            .orderBy(sortBy, descending: isDescending);
 
         var records = await query.get().then(
           (value) => value.docs.map((e) => e.data()).toList(),
@@ -209,6 +209,43 @@ class FirestoreServices extends DatabaseServices {
             .collection(subCollectionPath!)
             .doc(subCollectionID)
             .update({"$key": data});
+      }
+    } on FirebaseException catch (e) {
+      log("firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      CustomFirebaseFirestoreException.handle(e);
+      rethrow;
+    } catch (e) {
+      log("general exception from fetchGroupOfRecordsSorted: ${e.toString()}");
+      throw UnExpectedException();
+    }
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> fetchGroupOfDataEqualTo({
+    required String path,
+    required String id,
+    String? subCollectionPath,
+    required String key,
+    dynamic isEqualTo,
+  }) async {
+    try {
+      if (subCollectionPath == null) {
+        var records = await firebaseFirestore
+            .collection(path)
+            .where(key, isEqualTo: isEqualTo)
+            .get()
+            .then((value) => value.docs.map((e) => e.data()).toList());
+
+        return records;
+      } else {
+        var records = await firebaseFirestore
+            .collection(path)
+            .doc(id)
+            .collection(subCollectionPath)
+            .where(key, isEqualTo: isEqualTo)
+            .get()
+            .then((value) => value.docs.map((e) => e.data()).toList());
+        return records;
       }
     } on FirebaseException catch (e) {
       log("firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}");

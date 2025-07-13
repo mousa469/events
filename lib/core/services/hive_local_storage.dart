@@ -12,7 +12,7 @@ class HiveLocalStorage extends LocalStorage {
 
     Hive.registerAdapter(EventAdapter());
 
-    hiveBox = await Hive.openBox('theLastOne');
+    hiveBox = await Hive.openBox('cambiasso');
   }
 
   @override
@@ -48,6 +48,10 @@ class HiveLocalStorage extends LocalStorage {
 
   static Future<void> clearAllValues() async {
     await hiveBox.clear();
+  }
+
+  static Future<void> clearSpecficValues({required String key}) async {
+    await hiveBox.delete(key);
   }
 
   @override

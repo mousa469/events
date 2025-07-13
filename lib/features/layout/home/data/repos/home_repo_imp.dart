@@ -53,13 +53,20 @@ class HomeRepoImp extends HomeRepo {
   Future<Either<Failure, List<Event>>> fetchUserEvents() async {
     try {
       if (await networkChecker.hasInternetConnection()) {
+        List<Event> offlineEventsList = await homeRepoLocalDataSource
+            .fetchUserEventsFromOfflineMode();
+
+        if (offlineEventsList.isNotEmpty) {
+          for (var i = 0; i < offlineEventsList.length; i++) {
+            homeRepoRemoteDataSource.addEvent(event: offlineEventsList[i]);
+          }
+          homeRepoLocalDataSource.clearEventsFromOfflineMode();
+        }
+
         List<Event> events = await homeRepoRemoteDataSource.fetchUserEvents();
         homeRepoLocalDataSource.addEvents(events: events);
         return Right(events);
       } else {
-        log(
-          "there is no internet in the home repo and the data fethced from the local data source",
-        );
         return Right(await homeRepoLocalDataSource.fetchUserEvents());
       }
     } on CustomFirebaseFirestoreException catch (e) {
@@ -76,7 +83,27 @@ class HomeRepoImp extends HomeRepo {
       if (await networkChecker.hasInternetConnection()) {
         await homeRepoRemoteDataSource.addEventToFavourites(eventId: eventId);
       } else {
-        // TODO : add event to favorites is offline mode
+        return Left(NoInternetConnectionFailure());
+      }
+      return Right(unit);
+    } on CustomFirebaseFirestoreException catch (e) {
+      return Left(FirebaseFirestoreFailureHandler.handle(e));
+    } on UnExpectedException {
+      return Left(UnExpectedFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> removeEventFromFavorites({
+    required String eventId,
+  }) async {
+    try {
+      if (await networkChecker.hasInternetConnection()) {
+        await homeRepoRemoteDataSource.removeEventFromFavourites(
+          eventId: eventId,
+        );
+      } else {
+        return Left(NoInternetConnectionFailure());
       }
       return Right(unit);
     } on CustomFirebaseFirestoreException catch (e) {

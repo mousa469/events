@@ -5,6 +5,7 @@ import 'package:events/core/theme/app_styles/app_styles.dart';
 import 'package:events/core/utilies/theme_toggler.dart';
 import 'package:events/core/widgets/favorite_icon.dart';
 import 'package:events/features/layout/home/data/cubits/add_event_to_favorites/add_event_to_favorites_cubit.dart';
+import 'package:events/features/layout/home/data/cubits/remove_event_from_favourites/remove_event_from_favourites_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,13 +66,18 @@ class _EventCardTitleState extends State<EventCardTitle> {
 
               InkWell(
                 onTap: () {
-                  log("event id : ${widget.eventId}");
-                  BlocProvider.of<AddEventToFavoritesCubit>(
-                    context,
-                  ).addEventToRepo(eventId: widget.eventId, context: context);
-                  setState(() {
-                    isEventFavorite = true;
-                  });
+                  if (widget.isFavorite) {
+                    BlocProvider.of<RemoveEventFromFavouritesCubit>(
+                      context,
+                    ).removeEventFromFavourites(
+                      eventId: widget.eventId,
+                      context: context,
+                    );
+                  } else {
+                    BlocProvider.of<AddEventToFavoritesCubit>(
+                      context,
+                    ).addEventToRepo(eventId: widget.eventId, context: context);
+                  }
                 },
                 child: FavoriteIcon(isFavorite: isEventFavorite),
               ),

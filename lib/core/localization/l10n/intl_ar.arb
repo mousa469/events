@@ -111,7 +111,9 @@
                         "event_created_successfully" : "تم انشاء الحدث بنجاح",
                         "name_not_available" : "الاسم غير متوفر",
                                 "No_events_added_yet":"لا يوجد أحداث حتى الآن",
-                                        "Event_added_to_favorites_successfully":"تم إضافة الحدث إلى المفضلة بنجاح"
+                                        "Event_added_to_favorites_successfully":"تم إضافة الحدث إلى المفضلة بنجاح",
+                                        "event_removed_from_Favorite" : "تم حذف الحدث من المفضله"
+
 
 
 

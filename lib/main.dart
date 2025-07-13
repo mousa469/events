@@ -9,6 +9,7 @@ import 'package:events/core/utilies/keys.dart';
 import 'package:events/core/utilies/language_toggler.dart';
 import 'package:events/core/utilies/theme_toggler.dart';
 import 'package:events/features/authentication/presentation/views/sign_in_view.dart';
+import 'package:events/features/layout/event_details/presentation/views/event_details_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:events/firebase_options.dart';
@@ -25,6 +26,7 @@ void main() async {
   getItSetup();
   CustomEasyLoading.easyLoadingSetup();
   await HiveLocalStorage.hiveConfig();
+ await HiveLocalStorage.clearSpecficValues(key: Keys.eventsListInOfflineMode);
 
   runApp(const Evently());
 }
@@ -97,3 +99,5 @@ class _EventlyState extends State<Evently> {
     );
   }
 }
+
+// List<Placemark> placemarks = await placemarkFromCoordinates(52.2165157, 6.9437819);
