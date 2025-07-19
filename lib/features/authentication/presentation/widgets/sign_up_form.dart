@@ -156,7 +156,10 @@ class _SignUpFormState extends State<SignUpForm> {
             SizedBox(height: 24.h),
 
             CustomElevatedButton(
-              title: S.of(context).create_account,
+              
+              title:Text(S.of(context).create_account , style:  AppStyles.style20Medium.copyWith(
+                color: AppColors.white,
+              ),) ,
               backgroundColor: AppColors.primaryColor,
               borderRadius: 16.r,
               width: double.infinity,
@@ -182,9 +185,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   }
                 }
               },
-              textStyle: AppStyles.style20Medium.copyWith(
-                color: AppColors.white,
-              ),
+            
             ),
             SizedBox(height: 24.h),
 

@@ -11,6 +11,8 @@ import 'package:events/features/layout/choose_event_location/data/repo/choose_ev
 import 'package:events/features/layout/create_event/data/data_sources/create_event_local_data_source.dart';
 import 'package:events/features/layout/create_event/data/data_sources/create_event_remote_data_source.dart';
 import 'package:events/features/layout/create_event/data/repos/create_event_repo_imp.dart';
+import 'package:events/features/layout/edit_event/data/managers/update_event_details/update_event_details_cubit.dart';
+import 'package:events/features/layout/edit_event/data/repos/edit_event_repo_impl.dart';
 import 'package:events/features/layout/event_details/data/repos/event_details_repo_impl.dart';
 import 'package:events/features/layout/favorites/data/datasources/favouirtes_local_data_source.dart';
 import 'package:events/features/layout/favorites/data/datasources/favouirtes_remote_data_source.dart';
@@ -36,7 +38,16 @@ void getItSetup() {
       secureLocalStorage: getIt<CustomFlutterSecureStorage>(),
     ),
   );
+  getIt.registerSingleton<EditEventRepoImpl>(
+    EditEventRepoImpl(
+      customFlutterSecureStorage: getIt<CustomFlutterSecureStorage>(),
+      databaseServices:getIt<FirestoreServices>(),
+      networkChecker: getIt<ConnectivityService>(),
+    ),
+  );
+
   getIt.registerSingleton<EventDetailsRepoImpl>(EventDetailsRepoImpl());
+  getIt.registerSingleton<UpdateEventDetailsCubit>(UpdateEventDetailsCubit(editEventRepo: getIt<EditEventRepoImpl>() ));
   getIt.registerSingleton<HomeRepoRemoteDataSourceImpl>(
     HomeRepoRemoteDataSourceImpl(
       idGenerator: UuidGenerator(),

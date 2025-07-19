@@ -87,13 +87,16 @@ class PortraitWelcomeViewBody extends StatelessWidget {
           SizedBox(height: 28.h),
 
           CustomElevatedButton(
-            title: "Let’s Start",
+            title: Text(
+              "Let’s Start",
+              style: AppStyles.style20Medium.copyWith(color: AppColors.white),
+            ),
             backgroundColor: AppColors.primaryColor,
             borderRadius: 16.r,
             onPressed: () {
               context.pushAndRemoveUntil(routeName: OnBoardingView.id);
             },
-            textStyle: AppStyles.style20Medium.copyWith(color: AppColors.white),
+
             width: double.infinity,
           ),
           SizedBox(height: 28.h),

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:events/core/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 
@@ -14,3 +16,4 @@ const List<String> EventCategories = [
   AppAssets.workCategory,
   AppAssets.bookCategory,
 ];
+const double initialCameraZoom = 16;

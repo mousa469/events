@@ -1,8 +1,9 @@
-import 'dart:developer';
 import 'package:events/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:events/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:events/features/layout/choose_event_location/presentation/views/choose_event_location_view.dart';
 import 'package:events/features/layout/create_event/presentation/views/create_event_view.dart';
+import 'package:events/features/layout/edit_event/presentation/views/edit_event_view.dart';
+import 'package:events/features/layout/edit_event/presentation/views/update_event_location_view.dart';
 import 'package:events/features/layout/event_details/presentation/views/event_details_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -12,12 +13,27 @@ import 'package:flutter/material.dart';
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    log(" the initial route in app router is : ${settings.name}");
+    // log(" the initial route in app router is : ${settings.name}");
     switch (settings.name) {
       case WelcomeView.id:
         return MaterialPageRoute(
           builder: (context) {
             return WelcomeView();
+          },
+        );
+      case UpdateEventLocationView.id:
+        return MaterialPageRoute(
+          builder: (context) {
+            return UpdateEventLocationView();
+          },
+        );
+      case EditEventView.id:
+        return MaterialPageRoute(
+          settings: RouteSettings(
+            arguments: settings.arguments,
+          ),
+          builder: (context) {
+            return EditEventView();
           },
         );
       case EventDetailsView.id:

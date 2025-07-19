@@ -192,23 +192,22 @@ class FirestoreServices extends DatabaseServices {
 
   @override
   Future<void> updateRecord({
-    required String key,
     required String path,
     String? id,
-    required dynamic data,
+    required Map<String,dynamic> data,
     String? subCollectionPath,
     String? subCollectionID,
   }) async {
     try {
       if (subCollectionPath == null && subCollectionID == null) {
-        await firebaseFirestore.collection(path).doc(id).update({"$key": data});
+        await firebaseFirestore.collection(path).doc(id).update(data);
       } else {
         await firebaseFirestore
             .collection(path)
             .doc(id)
             .collection(subCollectionPath!)
             .doc(subCollectionID)
-            .update({"$key": data});
+            .update(data);
       }
     } on FirebaseException catch (e) {
       log("firebase exception from fetchGroupOfRecordsSorted: ${e.toString()}");

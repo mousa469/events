@@ -35,7 +35,17 @@ class Event extends HiveObject {
   @HiveField(9)
   String time;
 
+
+  @HiveField(10)
+  String?
+   location;
+
+
+
+
+
   Event({
+     this.location,
     required this.time,
     required this.createdAt,
     this.isfavourite = false,
@@ -50,6 +60,7 @@ class Event extends HiveObject {
 
   Map<String, dynamic> toJson() {
     return {
+      Keys.eventLocation: location,
       Keys.time : time,
       Keys.createdAt: createdAt,
       Keys.isFavourite: isfavourite,
@@ -65,6 +76,7 @@ class Event extends HiveObject {
 
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
+      location: json[Keys.eventLocation],
       time:json[Keys.time] ,
       createdAt: json[Keys.createdAt],
       isfavourite: json[Keys.isFavourite],

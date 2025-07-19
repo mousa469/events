@@ -37,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "DEADLINE_EXCEEDED": MessageLookupByLibrary.simpleMessage(
       "The operation took too long to complete. Please try again.",
     ),
+    "Event_Updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "Event Updated successfully",
+    ),
     "Event_added_to_favorites_successfully":
         MessageLookupByLibrary.simpleMessage(
           " Event added to favorites successfully",

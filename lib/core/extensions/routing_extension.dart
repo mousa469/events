@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 extension Navigation on BuildContext {
   void pushNamed( {Object? arguments , required String routeName, bool rootNavigator = false}) {
-    Navigator.of(this , rootNavigator: rootNavigator ).pushNamed(routeName, arguments: arguments);
+    Navigator.of(this , rootNavigator: rootNavigator ).pushNamed(routeName, arguments: arguments , );
   }
   void pop() {
     Navigator.pop(this);

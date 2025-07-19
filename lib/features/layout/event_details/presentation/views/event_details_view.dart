@@ -4,6 +4,7 @@ import 'package:events/core/services/service_locator.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
 import 'package:events/features/layout/create_event/data/models/event.dart';
+import 'package:events/features/layout/edit_event/presentation/views/edit_event_view.dart';
 import 'package:events/features/layout/event_details/data/cubits/fetch_event_location/fetch_event_location_cubit.dart';
 import 'package:events/features/layout/event_details/data/repos/event_details_repo_impl.dart';
 import 'package:events/features/layout/event_details/presentation/widgets/event_details_view_body.dart';
@@ -38,7 +39,9 @@ class EventDetailsView extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(routeName: EditEventView.id ,  arguments: event  );
+              },
               icon: Icon(Icons.edit, color: AppColors.primaryColor),
             ),
 

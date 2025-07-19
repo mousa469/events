@@ -181,27 +181,3 @@ class _ChooseEventLocationViewBodyState
 }
 
 
-      // BlocListener<UserSearchLocationCubit, UserSearchLocationState>(
-      //         listener: (context, state) {
-      //           if (state is UserSearchLocationSuccess) {
-      //             for (int i = 0; i < state.locations.length; i++) {
-      //               mapController.animateCamera(
-      //                 CameraUpdate.newLatLngZoom(
-      //                   LatLng(
-      //                     state.locations[i].latitude,
-      //                     state.locations[i].longtude,
-      //                   ),
-      //                   16,
-      //                 ),
-      //               );
-      //             }
-      //           } else if (state is UserSearchLocationFailure) {
-      //             CustomSnackBar(
-      //               type: SnackBarType.failure,
-      //               title: S.of(context).oops,
-      //               subTitle: state.errMessage,
-      //               context: context,
-      //             );
-      //           }
-      //         },
-      //       ),

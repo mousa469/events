@@ -69,9 +69,8 @@ class HomeRepoRemoteDataSourceImpl extends HomeRepoRemoteDataSource {
       await databaseServices.updateRecord(
         path: Endpoints.usersEndpoint,
         id: await secureLocalStorage.getData(key: Keys.userID),
-        key: Keys.isFavourite,
         subCollectionPath: Endpoints.userEvents,
-        data: true,
+        data: {Keys.isFavourite : true},
         subCollectionID: eventId,
       );
     } on CustomFirebaseFirestoreException {
@@ -88,9 +87,8 @@ class HomeRepoRemoteDataSourceImpl extends HomeRepoRemoteDataSource {
       await databaseServices.updateRecord(
         path: Endpoints.usersEndpoint,
         id: await secureLocalStorage.getData(key: Keys.userID),
-        key: Keys.isFavourite,
         subCollectionPath: Endpoints.userEvents,
-        data: false,
+        data: {Keys.isFavourite : false},
         subCollectionID: eventId,
       );
     } on CustomFirebaseFirestoreException {

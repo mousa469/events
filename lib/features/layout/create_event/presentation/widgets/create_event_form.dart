@@ -148,12 +148,14 @@ class _CreateEventFormState extends State<CreateEventForm> {
           ),
           SizedBox(height: 16.h),
           CustomElevatedButton(
-            title: S.of(context).add_event,
+            title: Text(
+              S.of(context).add_event,
+              style: AppStyles.style20Medium.copyWith(color: AppColors.white),
+            ),
             backgroundColor: AppColors.primaryColor,
             borderRadius: 16.w,
             width: double.infinity,
             onPressed: () => _handleAddEvent(context, eventInfo),
-            textStyle: AppStyles.style20Medium.copyWith(color: AppColors.white),
           ),
         ],
       ).horizontalPadding(value: 16.w),

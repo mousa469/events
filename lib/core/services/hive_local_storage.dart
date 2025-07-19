@@ -12,7 +12,7 @@ class HiveLocalStorage extends LocalStorage {
 
     Hive.registerAdapter(EventAdapter());
 
-    hiveBox = await Hive.openBox('cambiasso');
+    hiveBox = await Hive.openBox('EventsBox');
   }
 
   @override

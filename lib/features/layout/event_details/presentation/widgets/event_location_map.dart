@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map/flutter_map.dart' hide Marker;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class EventLocationMap extends StatefulWidget {
   const EventLocationMap({super.key, required this.lat, required this.long});
@@ -18,15 +18,16 @@ class EventLocationMap extends StatefulWidget {
 class _EventLocationMapState extends State<EventLocationMap> {
   late MapController mapController;
   late LatLng eventLocation;
+  late CameraPosition initialCameraPosition;
+  Set<Marker> markers = {};
 
   @override
   void initState() {
     super.initState();
     mapController = MapController();
     eventLocation = LatLng(widget.lat, widget.long);
-    log(
-      "${eventLocation.latitude.toString()}, ${eventLocation.longitude.toString()}",
-    );
+    initialCameraPosition = CameraPosition(target: eventLocation, zoom: 16);
+    markers.add(Marker(markerId: MarkerId("3"), position: eventLocation));
   }
 
   @override
@@ -37,6 +38,14 @@ class _EventLocationMapState extends State<EventLocationMap> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: AppColors.primaryColor),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16.r),
+        child: GoogleMap(
+          initialCameraPosition: initialCameraPosition,
+          markers: markers,
+          onMapCreated: (controller) {},
+        ),
       ),
     );
   }

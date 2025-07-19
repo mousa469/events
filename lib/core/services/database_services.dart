@@ -36,10 +36,9 @@ abstract class DatabaseServices {
   });
 
   Future<void> updateRecord({
-    required String key,
     required String path,
     String? id,
-    required dynamic data,
+    required Map<String,dynamic> data,
     String? subCollectionPath,
     String? subCollectionID,
   });

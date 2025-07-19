@@ -970,6 +970,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Event Updated successfully`
+  String get Event_Updated_successfully {
+    return Intl.message(
+      'Event Updated successfully',
+      name: 'Event_Updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
