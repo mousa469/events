@@ -158,4 +158,24 @@ class FirebaseAuthServices extends AuthServices {
       throw UnExpectedException();
     }
   }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      await firebaseAuth.signOut();
+    } on FirebaseAuthException catch (authException) {
+      log(
+        "firebase auth exception come from FirebaseAuthServices.createUserWithEmailAndPassword and message is : ${authException.message}  ",
+      );
+
+      CustomFirebaseAuthException.handle(authException: authException);
+      rethrow;
+    } catch (e) {
+      log(
+        "general exception come from FirebaseAuthServices.createUserWithEmailAndPassword and message is : ${e.toString()}  ",
+      );
+
+      throw UnExpectedException();
+    }
+  }
 }

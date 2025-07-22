@@ -980,6 +980,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign out successfully`
+  String get sign_out_successfully {
+    return Intl.message(
+      'Sign out successfully',
+      name: 'sign_out_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

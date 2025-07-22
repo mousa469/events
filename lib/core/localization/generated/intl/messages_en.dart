@@ -235,6 +235,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signInSuccess": MessageLookupByLibrary.simpleMessage(
       "You have signed in successfully.",
     ),
+    "sign_out_successfully": MessageLookupByLibrary.simpleMessage(
+      "Sign out successfully",
+    ),
     "sport": MessageLookupByLibrary.simpleMessage("Sport"),
     "success": MessageLookupByLibrary.simpleMessage("Successfully"),
     "tap_location": MessageLookupByLibrary.simpleMessage(

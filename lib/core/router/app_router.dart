@@ -6,6 +6,7 @@ import 'package:events/features/layout/edit_event/presentation/views/edit_event_
 import 'package:events/features/layout/edit_event/presentation/views/update_event_location_view.dart';
 import 'package:events/features/layout/event_details/presentation/views/event_details_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
+import 'package:events/features/layout/more/presentation/views/more_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:events/features/on_boarding/presentation/views/welcome_view.dart';
 import 'package:events/features/layout/home/presentation/views/home_view.dart';
@@ -25,6 +26,12 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return UpdateEventLocationView();
+          },
+        );
+      case MoreView.id:
+        return MaterialPageRoute(
+          builder: (context) {
+            return MoreView();
           },
         );
       case EditEventView.id:

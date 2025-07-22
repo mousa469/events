@@ -13,4 +13,5 @@ abstract class AuthServices {
 
   Future<UserModel> signInWithGoogle();
   Future<UserModel> signInWithFacbook();
+  Future<void> signOut();
 }

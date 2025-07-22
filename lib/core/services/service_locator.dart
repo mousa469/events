@@ -20,6 +20,7 @@ import 'package:events/features/layout/favorites/data/repos/favourits_repo_imp.d
 import 'package:events/features/layout/home/data/data%20sources/home_repo_local_data_source.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_remote_data_source.dart';
 import 'package:events/features/layout/home/data/repos/home_repo_imp.dart';
+import 'package:events/features/layout/more/data/repos/more_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -43,6 +44,13 @@ void getItSetup() {
       customFlutterSecureStorage: getIt<CustomFlutterSecureStorage>(),
       databaseServices:getIt<FirestoreServices>(),
       networkChecker: getIt<ConnectivityService>(),
+    ),
+  );
+  getIt.registerSingleton<MoreRepoImpl>(
+    MoreRepoImpl(
+      authServices: FirebaseAuthServices() ,
+      networkChecker: getIt<ConnectivityService>() ,
+     
     ),
   );
 

@@ -112,7 +112,9 @@
           "No_events_added_yet":"No events added yet",
                   "Event_added_to_favorites_successfully":" Event added to favorites successfully",
                   "event_removed_from_Favorite" : " Event removed from favourites successfully",
-                            "Event_Updated_successfully" : "Event Updated successfully"
+                            "Event_Updated_successfully" : "Event Updated successfully",
+                            "sign_out_successfully" : "Sign out successfully"
+
 
 
                   

@@ -25,7 +25,7 @@ void main() async {
   getItSetup();
   CustomEasyLoading.easyLoadingSetup();
   await HiveLocalStorage.hiveConfig();
- await HiveLocalStorage.clearSpecficValues(key: Keys.eventsListInOfflineMode);
+  await HiveLocalStorage.clearSpecficValues(key: Keys.eventsListInOfflineMode);
 
   runApp(const Evently());
 }
@@ -63,7 +63,10 @@ class _EventlyState extends State<Evently> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => LanguageToggler()),
+        ChangeNotifierProvider(
+          create: (context) =>
+              LanguageToggler(localStorage: getIt<HiveLocalStorage>()),
+        ),
         ChangeNotifierProvider(create: (context) => ThemeToggler()),
         ChangeNotifierProvider(create: (context) => EventInformation()),
       ],
@@ -98,4 +101,3 @@ class _EventlyState extends State<Evently> {
     );
   }
 }
-

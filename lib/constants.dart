@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:events/core/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,3 +15,7 @@ const List<String> EventCategories = [
   AppAssets.bookCategory,
 ];
 const double initialCameraZoom = 16;
+const String arabic = "عربي";
+const String english = "English";
+const String dark = "dark";
+const String light = "light";

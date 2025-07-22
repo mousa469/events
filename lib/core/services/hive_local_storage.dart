@@ -58,4 +58,14 @@ class HiveLocalStorage extends LocalStorage {
   Future<void> setList<T>({required String key, required List<T> value}) async {
     await hiveBox.put(key, value);
   }
+
+  @override
+  Future<String> getString({required String key}) async {
+  return  await hiveBox.get(key);
+  }
+
+  @override
+  Future<void> setString({required String key, required String value}) async {
+    await hiveBox.put(key, value);
+  }
 }

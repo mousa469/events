@@ -25,6 +25,9 @@ abstract class Keys {
   static const String lat = "lat";
   static const String long = "long";
   static const String time = "time";
+  static const String ar = "ar";
+  static const String en = "en";
+  static const String language = "language";
   static const String favouriteEvents = "favouriteEvents";
   static const String favouriteEventsInOfflineMode = "favouriteEventsInOfflineMode";
 
