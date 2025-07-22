@@ -93,7 +93,7 @@ class _EventlyState extends State<Evently> {
               locale: local.locale,
               theme: mode.appTheme,
               onGenerateRoute: AppRouter.onGenerateRoute,
-              initialRoute: LayoutView.id,
+              initialRoute: SignInView.id,
             ),
           );
         },

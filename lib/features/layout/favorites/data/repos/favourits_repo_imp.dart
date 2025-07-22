@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:events/core/errors/failure.dart';
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_exception_handler.dart';
@@ -30,8 +32,10 @@ class FavouritsRepoImp extends FavoritsRepo {
         return Right(await favouirtesLocalDataSource.fetchFavouriteEvents());
       }
     } on CustomFirebaseFirestoreException catch (e) {
+      log("CustomFirebaseFirestoreException come from FavouritsRepoImp.fetchFavoritesEvents and message is : ${e.toString()}  ");
       return Left(FirebaseFirestoreFailureHandler.handle(e));
     } on UnExpectedException {
+      log("un expected exception come from FavouritsRepoImp.fetchFavoritesEvents  ");
       return Left(UnExpectedFailure());
     }
   }

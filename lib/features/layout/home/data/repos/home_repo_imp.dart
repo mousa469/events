@@ -43,8 +43,11 @@ class HomeRepoImp extends HomeRepo {
         yield Right(remoteUserName);
       }
     } on CustomFirebaseFirestoreException catch (e) {
+      log("CustomFirebaseFirestoreException come from HomeRepoImp.fetchUserName and message is : ${e.toString()}  ");
       yield Left(FirebaseFirestoreFailureHandler.handle(e));
     } catch (e) {
+            log("general exception come from HomeRepoImp.fetchUserName and message is : ${e.toString()}  ");
+
       yield Left(UnExpectedFailure());
     }
   }
@@ -70,8 +73,15 @@ class HomeRepoImp extends HomeRepo {
         return Right(await homeRepoLocalDataSource.fetchUserEvents());
       }
     } on CustomFirebaseFirestoreException catch (e) {
+            log("CustomFirebaseFirestoreException come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
+
       return Left(FirebaseFirestoreFailureHandler.handle(e));
-    } on UnExpectedException {
+    } on UnExpectedException catch (e) {
+
+            log("general exception come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
+      return Left(UnExpectedFailure());
+    } catch (e) {
+            log("general exception come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
       return Left(UnExpectedFailure());
     }
   }
@@ -87,8 +97,10 @@ class HomeRepoImp extends HomeRepo {
       }
       return Right(unit);
     } on CustomFirebaseFirestoreException catch (e) {
+       log( "CustomFirebaseFirestoreException come from HomeRepoImp.addEventToFavorites and message is : ${e.toString()}  ");
       return Left(FirebaseFirestoreFailureHandler.handle(e));
-    } on UnExpectedException {
+    } on UnExpectedException catch (e) {
+       log( "un expected exception come from HomeRepoImp.addEventToFavorites and message is : ${e.toString()}  ");
       return Left(UnExpectedFailure());
     }
   }
@@ -107,8 +119,10 @@ class HomeRepoImp extends HomeRepo {
       }
       return Right(unit);
     } on CustomFirebaseFirestoreException catch (e) {
+       log( "CustomFirebaseFirestoreException come from HomeRepoImp.removeEventFromFavorites and message is : ${e.toString()}  ");
       return Left(FirebaseFirestoreFailureHandler.handle(e));
-    } on UnExpectedException {
+    } on UnExpectedException catch (e) {
+       log( "un expected exception come from HomeRepoImp.removeEventFromFavorites and message is : ${e.toString()}  ");
       return Left(UnExpectedFailure());
     }
   }

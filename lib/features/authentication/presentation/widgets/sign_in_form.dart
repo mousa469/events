@@ -63,7 +63,6 @@ class _SignInFormState extends State<SignInForm> {
 
             context.pushAndRemoveUntil(routeName: LayoutView.id);
 
-            return;
           }
 
           if (state is SignInFailure) {
@@ -109,6 +108,7 @@ class _SignInFormState extends State<SignInForm> {
             SizedBox(height: 24.h),
 
             CustomElevatedButton(
+              height: 50.h,
               title: Text(
                 S.of(context).login,
                 style: AppStyles.style20Medium.copyWith(color: AppColors.white),

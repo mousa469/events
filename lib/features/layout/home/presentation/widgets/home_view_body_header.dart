@@ -96,7 +96,7 @@ class _HomeViewBodyHeaderState extends State<HomeViewBodyHeader> {
                         child: Icon(Icons.light_mode, color: AppColors.white),
                       ),
                       SizedBox(width: 10.w),
-                      EnglishLanguageToggler(),
+                      // EnglishLanguageToggler(),
                     ],
                   ),
                 ],

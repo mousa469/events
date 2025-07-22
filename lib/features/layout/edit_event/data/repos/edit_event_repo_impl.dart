@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:events/core/errors/failure.dart';
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_exception_handler.dart';
@@ -38,8 +40,10 @@ class EditEventRepoImpl extends EditEventRepo {
         return Left(NoInternetConnectionFailure());
       }
     } on CustomFirebaseFirestoreException catch (firebaseException) {
+       log("CustomFirebaseFirestoreException come from EditEventRepoImpl.updateEventDetails and message is : ${firebaseException.toString()}  ");
       return Left(FirebaseFirestoreFailureHandler.handle(firebaseException));
     } catch (e) {
+      log("UnExpectedFailure come from EditEventRepoImpl.updateEventDetails and message is : ${e.toString()}  ");
       return Left(UnExpectedFailure());
     }
   }

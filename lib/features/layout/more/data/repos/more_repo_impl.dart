@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:events/core/errors/failure.dart';
 import 'package:events/core/errors/firebase%20auth%20errors/firebase_auth_exception_handler.dart';
@@ -21,8 +23,10 @@ class MoreRepoImpl extends MoreRepo {
         return Left(NoInternetConnectionFailure());
       }
     } on CustomFirebaseAuthException catch (e) {
+      log("CustomFirebaseAuthException come from MoreRepoImpl.signOut and message is : ${e.toString()}  ");
       return Left(FirebaseAuthFailureHandler.handle(exception: e));
     } on Exception {
+      log("Exception come from MoreRepoImpl.signOut ");
       return Left(UnExpectedFailure());
     }
   }
