@@ -5,7 +5,7 @@ import 'package:events/core/services/hive_local_storage.dart';
 import 'package:events/core/services/local_storage.dart';
 import 'package:events/core/widgets/custom_snack_bar.dart';
 import 'package:events/features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:events/features/layout/home/presentation/views/home_view.dart';
+import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
@@ -63,14 +63,13 @@ class _SignUpFormState extends State<SignUpForm> {
           if (state is SignUpSuccess) {
             EasyLoading.dismiss();
 
-            context.pushAndRemoveUntil(routeName: HomeView.id);
+            context.pushAndRemoveUntil(routeName: LayoutView.id);
             CustomSnackBar(
               type: SnackBarType.success,
               title: S.of(context).success,
               subTitle: S.of(context).registration_success,
               context: context,
             );
-
 
             return;
           }
@@ -156,10 +155,12 @@ class _SignUpFormState extends State<SignUpForm> {
             SizedBox(height: 24.h),
 
             CustomElevatedButton(
-              
-              title:Text(S.of(context).create_account , style:  AppStyles.style20Medium.copyWith(
-                color: AppColors.white,
-              ),) ,
+              height: 50.h,
+
+              title: Text(
+                S.of(context).create_account,
+                style: AppStyles.style20Medium.copyWith(color: AppColors.white),
+              ),
               backgroundColor: AppColors.primaryColor,
               borderRadius: 16.r,
               width: double.infinity,
@@ -185,7 +186,6 @@ class _SignUpFormState extends State<SignUpForm> {
                   }
                 }
               },
-            
             ),
             SizedBox(height: 24.h),
 

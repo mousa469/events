@@ -47,9 +47,9 @@ class SignInCubit extends Cubit<SignInState> {
         );
       },
       (user) {
-        emit(SignInSuccess(userModel: user));
         localStorage.setBool(value: true, key: Keys.isAthenticatedBefore);
         secureLocalStorage.addUserInfoToLocalStorage(user: user);
+        emit(SignInSuccess(userModel: user));
       },
     );
   }
@@ -76,10 +76,11 @@ class SignInCubit extends Cubit<SignInState> {
         emit(SignInFailure(errMessage: errMessage));
       },
       (user) {
-        emit(SignInSuccess(userModel: user));
-        secureLocalStorage.addUserInfoToLocalStorage(user: user);
+                secureLocalStorage.addUserInfoToLocalStorage(user: user);
 
         localStorage.setBool(value: true, key: Keys.isAthenticatedBefore);
+        emit(SignInSuccess(userModel: user));
+
       },
     );
   }
@@ -106,9 +107,10 @@ class SignInCubit extends Cubit<SignInState> {
         emit(SignInFailure(errMessage: errMessage));
       },
       (user) {
-        emit(SignInSuccess(userModel: user));
         localStorage.setBool(value: true, key: Keys.isAthenticatedBefore);
         secureLocalStorage.addUserInfoToLocalStorage(user: user);
+        emit(SignInSuccess(userModel: user));
+
       },
     );
   }

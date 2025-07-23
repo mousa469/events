@@ -13,8 +13,10 @@ class FetchFavouriteEventsCubit extends Cubit<FetchFavouriteEventsState> {
     : super(FetchFavouriteEventsInitial());
 
   FavoritsRepo favoritsRepo;
+  bool isFavoritesLoaded = false;
 
   void fetchFavouriteEvents({required BuildContext context}) async {
+    if (isFavoritesLoaded) return;
     log("fetchFavouriteEvents cubit triggered");
     emit(FetchFavouriteEventsLoading());
 
@@ -32,6 +34,7 @@ class FetchFavouriteEventsCubit extends Cubit<FetchFavouriteEventsState> {
         );
       },
       (events) {
+        isFavoritesLoaded = true;
         emit(FetchFavouriteEventsSuccess(events: events));
       },
     );

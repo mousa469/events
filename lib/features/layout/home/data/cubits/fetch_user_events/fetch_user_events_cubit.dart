@@ -18,37 +18,47 @@ class FetchUserEventsCubit extends Cubit<FetchUserEventsState> {
   FetchUserEventsCubit({required this.homeRepo}) : super(HomeInitial());
 
   void fetchUserEvents({required BuildContext context}) async {
-    log("isEventsLoaded : ${isEventsLoaded}");
-    if (!isEventsLoaded) {
-      log("the  fetchUserEvents cubit triggered");
-      emit(FetchUserEventsLoading());
-      var result = await homeRepo.fetchUserEvents();
-      result.fold(
-        (fail) {
-          FetchUserEventsFailure(
-            errMessage: FirebaseFirestoreFailureMessagesMapper.mapper(
-              failure: fail,
-              context: context,
-            ),
-          );
-        },
-        (events) {
-          originalEvents = events;
-          if (originalEvents.isEmpty) {
-            emit(FetchUserEventsSuccessfullyButEmpty());
-          } else {
-            emit(FetchUserEventsSuccessfully(events: events));
-          }
-          isEventsLoaded = true;
-        },
-      );
-    }
+    if (isEventsLoaded) return;
+    log(
+      "the flag is passed  and the flag is $isEventsLoaded in fetchUserEvents ",
+    );
+
+    emit(FetchUserEventsLoading());
+    var result = await homeRepo.fetchUserEvents();
+    result.fold(
+      (fail) {
+        FetchUserEventsFailure(
+          errMessage: FirebaseFirestoreFailureMessagesMapper.mapper(
+            failure: fail,
+            context: context,
+          ),
+        );
+      },
+      (events) {
+        originalEvents = events;
+        isEventsLoaded = true;
+        if (originalEvents.isEmpty) {
+          emit(FetchUserEventsSuccessfullyButEmpty());
+        } else {
+          emit(FetchUserEventsSuccessfully(events: events));
+        }
+      },
+    );
   }
 
   void fetchUserEventsByCategory({required String userCategory}) {
+    if (isEventsLoaded) return;
+    log(
+      "the flag is passed  and the flag is $isEventsLoaded in fetchUserEventsByCategory",
+    );
     emit(FetchUserEventsLoading());
     if (userCategory == Keys.All) {
-      emit(FetchUserEventsSuccessfully(events: originalEvents));
+      if (originalEvents.isEmpty) {
+        emit(FetchUserEventsSuccessfullyButEmpty());
+      } else {
+        emit(FetchUserEventsSuccessfully(events: originalEvents));
+      }
+
       return;
     }
 

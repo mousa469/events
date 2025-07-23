@@ -17,10 +17,9 @@ class FavoritesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => FetchFavouriteEventsCubit(
-            favoritsRepo: getIt<FavouritsRepoImp>(),
-          ),
+        BlocProvider.value(
+          value: getIt<FetchFavouriteEventsCubit>(),
+          
         ),
         BlocProvider(
           create: (context) =>

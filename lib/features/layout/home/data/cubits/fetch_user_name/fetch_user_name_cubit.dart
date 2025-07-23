@@ -14,8 +14,11 @@ class FetchUserNameCubit extends Cubit<FetchUserNameState> {
   final HomeRepo homeRepo;
     StreamSubscription? _subscription;
 
+   bool isNameLoaded = false; 
+
 
   void fetchUserName({required BuildContext context}) async {
+    if (isNameLoaded) return;
     log("fetch user name cubit triggered ");
     emit(FetchUserNameLoading());
 
@@ -29,6 +32,7 @@ class FetchUserNameCubit extends Cubit<FetchUserNameState> {
           );
         },
         (userName) {
+          isNameLoaded = true;
           emit(FetchUserNameSuccessfully(name: userName));
         },
       );

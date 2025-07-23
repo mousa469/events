@@ -5,17 +5,6 @@ class MapViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return Container();
-            },
-          ),
-        ),
-      ],
-    );
+    return Column(children: []);
   }
 }

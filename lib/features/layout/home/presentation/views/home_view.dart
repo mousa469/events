@@ -16,8 +16,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => FetchUserNameCubit(homeRepo: getIt<HomeRepoImp>()),),
-        BlocProvider(create: (context) => FetchUserEventsCubit(homeRepo: getIt<HomeRepoImp>()),),
+        BlocProvider.value(
+          value: getIt<FetchUserNameCubit>(),
+          ),
+        BlocProvider.value(
+          value: getIt<FetchUserEventsCubit>(),
+  ),
         BlocProvider(create: (context) => AddEventToFavoritesCubit(homeRepo: getIt<HomeRepoImp>()),),
         BlocProvider(create: (context) => RemoveEventFromFavouritesCubit(homeRepo: getIt<HomeRepoImp>()),),
 

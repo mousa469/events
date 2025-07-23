@@ -13,6 +13,7 @@ class FavouriteEventsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
+        BlocProvider.of<FetchFavouriteEventsCubit>(context).isFavoritesLoaded = false;
         BlocProvider.of<FetchFavouriteEventsCubit>(
           context,
         ).fetchFavouriteEvents(context: context);

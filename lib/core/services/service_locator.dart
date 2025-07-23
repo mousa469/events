@@ -14,9 +14,12 @@ import 'package:events/features/layout/create_event/data/repos/create_event_repo
 import 'package:events/features/layout/edit_event/data/managers/update_event_details/update_event_details_cubit.dart';
 import 'package:events/features/layout/edit_event/data/repos/edit_event_repo_impl.dart';
 import 'package:events/features/layout/event_details/data/repos/event_details_repo_impl.dart';
+import 'package:events/features/layout/favorites/data/cubits/fetch_favourite_events/fetch_favourite_events_cubit.dart';
 import 'package:events/features/layout/favorites/data/datasources/favouirtes_local_data_source.dart';
 import 'package:events/features/layout/favorites/data/datasources/favouirtes_remote_data_source.dart';
 import 'package:events/features/layout/favorites/data/repos/favourits_repo_imp.dart';
+import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
+import 'package:events/features/layout/home/data/cubits/fetch_user_name/fetch_user_name_cubit.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_local_data_source.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_remote_data_source.dart';
 import 'package:events/features/layout/home/data/repos/home_repo_imp.dart';
@@ -42,20 +45,21 @@ void getItSetup() {
   getIt.registerSingleton<EditEventRepoImpl>(
     EditEventRepoImpl(
       customFlutterSecureStorage: getIt<CustomFlutterSecureStorage>(),
-      databaseServices:getIt<FirestoreServices>(),
+      databaseServices: getIt<FirestoreServices>(),
       networkChecker: getIt<ConnectivityService>(),
     ),
   );
   getIt.registerSingleton<MoreRepoImpl>(
     MoreRepoImpl(
-      authServices: FirebaseAuthServices() ,
-      networkChecker: getIt<ConnectivityService>() ,
-     
+      authServices: FirebaseAuthServices(),
+      networkChecker: getIt<ConnectivityService>(),
     ),
   );
 
   getIt.registerSingleton<EventDetailsRepoImpl>(EventDetailsRepoImpl());
-  getIt.registerSingleton<UpdateEventDetailsCubit>(UpdateEventDetailsCubit(editEventRepo: getIt<EditEventRepoImpl>() ));
+  getIt.registerSingleton<UpdateEventDetailsCubit>(
+    UpdateEventDetailsCubit(editEventRepo: getIt<EditEventRepoImpl>()),
+  );
   getIt.registerSingleton<HomeRepoRemoteDataSourceImpl>(
     HomeRepoRemoteDataSourceImpl(
       idGenerator: UuidGenerator(),
@@ -85,6 +89,22 @@ void getItSetup() {
       homeRepoLocalDataSource: getIt<HomeRepoLocalDataSourceImpl>(),
       homeRepoRemoteDataSource: getIt<HomeRepoRemoteDataSourceImpl>(),
     ),
+  );
+  getIt.registerSingleton<FetchUserNameCubit>(
+    FetchUserNameCubit(homeRepo: getIt<HomeRepoImp>()),
+  );
+  getIt.registerSingleton<FetchFavouriteEventsCubit>(
+    FetchFavouriteEventsCubit(
+      favoritsRepo: FavouritsRepoImp(
+        favouirtesLocalDataSource: FavouirtesLocalDataSourceImpl(localStorage: getIt<HiveLocalStorage>()),
+        favouirtesRemoteDataSource: FavouirtesRemoteDataSourceImpl(databaseServices: FirestoreServices(), secureLocalStorage: getIt<CustomFlutterSecureStorage>()),
+        networkChecker: getIt<ConnectivityService>(),
+      ),
+    ),
+  );
+
+  getIt.registerSingleton<FetchUserEventsCubit>(
+    FetchUserEventsCubit(homeRepo: getIt<HomeRepoImp>()),
   );
   getIt.registerSingleton<FavouritsRepoImp>(
     FavouritsRepoImp(

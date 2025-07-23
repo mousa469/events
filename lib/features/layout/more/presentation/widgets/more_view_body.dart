@@ -1,8 +1,5 @@
 import 'package:events/core/extensions/padding_extension.dart';
 import 'package:events/core/localization/generated/l10n.dart';
-import 'package:events/core/theme/app_colors/app_colors.dart';
-import 'package:events/core/theme/app_styles/app_styles.dart';
-import 'package:events/core/widgets/custom_elevated_button.dart';
 import 'package:events/core/widgets/field_label.dart';
 import 'package:events/features/layout/more/presentation/widgets/language_drop_down_menu.dart';
 import 'package:events/features/layout/more/presentation/widgets/sign_out_button.dart';
