@@ -1,7 +1,7 @@
 import 'package:events/core/utilies/layout_index.dart';
 import 'package:events/features/layout/favorites/presentation/views/favorites_view.dart';
 import 'package:events/features/layout/home/presentation/views/home_view.dart';
-import 'package:events/features/layout/map_view/presentation/views/map_view.dart';
+import 'package:events/features/layout/map/presentation/views/map_view.dart';
 import 'package:events/features/layout/more/presentation/views/more_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

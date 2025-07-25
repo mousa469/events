@@ -4,18 +4,18 @@ import 'package:bloc/bloc.dart';
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_messages_mapper.dart';
 import 'package:events/core/utilies/keys.dart';
 import 'package:events/features/layout/create_event/data/models/event.dart';
-import 'package:events/features/layout/home/data/repos/home_repo.dart';
+import 'package:events/features/layout/fetch_user_events/data/repos/fetch_user_events_repo.dart';
 import 'package:flutter/material.dart';
 
 part 'fetch_user_events_state.dart';
 
 class FetchUserEventsCubit extends Cubit<FetchUserEventsState> {
-  final HomeRepo homeRepo;
+  final FetchUserEventsRepo fetchUserEventsRepo;
   List<Event> originalEvents = [];
   List<Event> filteredEvents = [];
   bool isEventsLoaded = false;
 
-  FetchUserEventsCubit({required this.homeRepo}) : super(HomeInitial());
+  FetchUserEventsCubit({required this.fetchUserEventsRepo}) : super(HomeInitial());
 
   void fetchUserEvents({required BuildContext context}) async {
     if (isEventsLoaded) return;
@@ -24,7 +24,7 @@ class FetchUserEventsCubit extends Cubit<FetchUserEventsState> {
     );
 
     emit(FetchUserEventsLoading());
-    var result = await homeRepo.fetchUserEvents();
+    var result = await fetchUserEventsRepo.fetchUserEvents();
     result.fold(
       (fail) {
         FetchUserEventsFailure(

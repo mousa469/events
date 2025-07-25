@@ -1,10 +1,11 @@
 import 'package:events/core/localization/generated/l10n.dart';
 import 'package:events/core/theme/app_colors/app_colors.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
-import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
 import 'package:events/features/layout/home/presentation/widgets/events_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../fetch_user_events/data/cubits/fetch_user_events/fetch_user_events_cubit.dart' show FetchUserEventsCubit, FetchUserEventsState, FetchUserEventsSuccessfully, FetchUserEventsFailure, FetchUserEventsSuccessfullyButEmpty;
 
 class EventsBLocBuilder extends StatefulWidget {
   const EventsBLocBuilder({super.key});
@@ -25,7 +26,7 @@ class _EventsListViewState extends State<EventsBLocBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FetchUserEventsCubit, FetchUserEventsState>(
+    return BlocBuilder<FetchUserEventsCubit, FetchUserEventsState >(
       builder: (context, state) {
         if (state is FetchUserEventsSuccessfully) {
           return EventsListView(events: state.events);

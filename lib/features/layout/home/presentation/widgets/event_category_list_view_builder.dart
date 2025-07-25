@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:events/core/models/event_category_model.dart';
 import 'package:events/core/utilies/keys.dart';
 import 'package:events/core/widgets/event_category.dart';
-import 'package:events/features/layout/home/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
+import 'package:events/features/layout/fetch_user_events/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

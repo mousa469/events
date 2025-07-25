@@ -5,7 +5,7 @@ import 'package:events/features/layout/create_event/presentation/views/create_ev
 import 'package:events/features/layout/edit_event/presentation/views/edit_event_view.dart';
 import 'package:events/features/layout/edit_event/presentation/views/update_event_location_view.dart';
 import 'package:events/features/layout/event_details/presentation/views/event_details_view.dart';
-import 'package:events/features/layout/map_view/presentation/views/map_view.dart';
+import 'package:events/features/layout/map/presentation/views/map_view.dart';
 import 'package:events/features/layout/presentation/views/layout_view.dart';
 import 'package:events/features/layout/more/presentation/views/more_view.dart';
 import 'package:events/features/on_boarding/presentation/views/on_boarding_view.dart';

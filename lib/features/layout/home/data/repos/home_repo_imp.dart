@@ -6,7 +6,6 @@ import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firest
 import 'package:events/core/errors/firebase%20firestore%20errors/firebase_firestore_failure_handler.dart';
 import 'package:events/core/errors/un_expected_exception.dart';
 import 'package:events/core/services/network_checker_interface.dart';
-import 'package:events/features/layout/create_event/data/models/event.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_local_data_source.dart';
 import 'package:events/features/layout/home/data/data%20sources/home_repo_remote_data_source.dart';
 import 'package:events/features/layout/home/data/repos/home_repo.dart';
@@ -52,39 +51,7 @@ class HomeRepoImp extends HomeRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, List<Event>>> fetchUserEvents() async {
-    try {
-      if (await networkChecker.hasInternetConnection()) {
-        List<Event> offlineEventsList = await homeRepoLocalDataSource
-            .fetchUserEventsFromOfflineMode();
 
-        if (offlineEventsList.isNotEmpty) {
-          for (var i = 0; i < offlineEventsList.length; i++) {
-            homeRepoRemoteDataSource.addEvent(event: offlineEventsList[i]);
-          }
-          homeRepoLocalDataSource.clearEventsFromOfflineMode();
-        }
-
-        List<Event> events = await homeRepoRemoteDataSource.fetchUserEvents();
-        homeRepoLocalDataSource.addEvents(events: events);
-        return Right(events);
-      } else {
-        return Right(await homeRepoLocalDataSource.fetchUserEvents());
-      }
-    } on CustomFirebaseFirestoreException catch (e) {
-            log("CustomFirebaseFirestoreException come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
-
-      return Left(FirebaseFirestoreFailureHandler.handle(e));
-    } on UnExpectedException catch (e) {
-
-            log("general exception come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
-      return Left(UnExpectedFailure());
-    } catch (e) {
-            log("general exception come from HomeRepoImp.fetchUserEvents and message is : ${e.toString()}  ");
-      return Left(UnExpectedFailure());
-    }
-  }
 
   Future<Either<Failure, Unit>> addEventToFavourites({
     required String eventId,
