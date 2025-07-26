@@ -15,7 +15,8 @@ class FetchUserEventsCubit extends Cubit<FetchUserEventsState> {
   List<Event> filteredEvents = [];
   bool isEventsLoaded = false;
 
-  FetchUserEventsCubit({required this.fetchUserEventsRepo}) : super(HomeInitial());
+  FetchUserEventsCubit({required this.fetchUserEventsRepo})
+    : super(HomeInitial());
 
   void fetchUserEvents({required BuildContext context}) async {
     if (isEventsLoaded) return;
@@ -47,7 +48,6 @@ class FetchUserEventsCubit extends Cubit<FetchUserEventsState> {
   }
 
   void fetchUserEventsByCategory({required String userCategory}) {
-    if (isEventsLoaded) return;
     log(
       "the flag is passed  and the flag is $isEventsLoaded in fetchUserEventsByCategory",
     );

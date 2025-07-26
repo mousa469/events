@@ -6,6 +6,7 @@ import 'package:events/core/theme/app_colors/app_colors_dark_mode.dart';
 import 'package:events/core/theme/app_styles/app_styles.dart';
 import 'package:events/core/utilies/theme_toggler.dart';
 import 'package:events/features/layout/home/data/cubits/fetch_user_name/fetch_user_name_cubit.dart';
+import 'package:events/features/layout/home/presentation/widgets/english_language_toggler.dart';
 import 'package:events/features/layout/home/presentation/widgets/event_category_list_view_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,7 @@ class _HomeViewBodyHeaderState extends State<HomeViewBodyHeader> {
                             builder: (context, state) {
                               if (state is FetchUserNameSuccessfully) {
                                 return SizedBox(
-                                  width: 300.w,
+                                  width: 250.w,
                                   child: Text(
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
@@ -95,7 +96,7 @@ class _HomeViewBodyHeaderState extends State<HomeViewBodyHeader> {
                         child: Icon(Icons.light_mode, color: AppColors.white),
                       ),
                       SizedBox(width: 10.w),
-                      // EnglishLanguageToggler(),
+                      EnglishLanguageToggler(),
                     ],
                   ),
                 ],

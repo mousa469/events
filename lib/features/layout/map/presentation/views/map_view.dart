@@ -1,6 +1,6 @@
 import 'package:events/core/services/service_locator.dart';
 import 'package:events/features/layout/fetch_user_events/data/cubits/fetch_user_events/fetch_user_events_cubit.dart';
-import 'package:events/features/layout/fetch_user_events/data/repos/fetch_user_events_repo_impl.dart';
+import 'package:events/features/layout/map/data/cubits/toggle_between_events_location/toggle_between_events_location_cubit.dart';
 import 'package:events/features/layout/map/presentation/widgets/map_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +12,11 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FetchUserEventsCubit(fetchUserEventsRepo: getIt<FetchUserEventsRepoImpl>()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: getIt<FetchUserEventsCubit>()),
+        BlocProvider(create: (context) => ToggleBetweenEventsLocationCubit()),
+      ],
       child: Scaffold(body: MapViewBody()),
     );
   }

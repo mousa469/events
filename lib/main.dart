@@ -26,7 +26,7 @@ void main() async {
   CustomEasyLoading.easyLoadingSetup();
   await HiveLocalStorage.hiveConfig();
   await HiveLocalStorage.clearSpecficValues(key: Keys.eventsListInOfflineMode);
-
+  // await dotenv.load(fileName: ".env");
   runApp(const Evently());
 }
 

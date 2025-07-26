@@ -1,3 +1,7 @@
+
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 abstract class Keys {
   static const String userID = "userID";
   static const String eventLocation = "location";
@@ -27,6 +31,7 @@ abstract class Keys {
   static const String time = "time";
   static const String ar = "ar";
   static const String en = "en";
+  static  String googleMapsApiKey = dotenv.env['GOOGLE_MAPS_API_KEY']!;
   static const String language = "language";
   static const String favouriteEvents = "favouriteEvents";
   static const String favouriteEventsInOfflineMode = "favouriteEventsInOfflineMode";
