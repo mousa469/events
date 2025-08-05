@@ -26,7 +26,6 @@ void main() async {
   CustomEasyLoading.easyLoadingSetup();
   await HiveLocalStorage.hiveConfig();
   await HiveLocalStorage.clearSpecficValues(key: Keys.eventsListInOfflineMode);
-  // await dotenv.load(fileName: ".env");
   runApp(const Evently());
 }
 
@@ -61,6 +60,7 @@ class _EventlyState extends State<Evently> {
 
   @override
   Widget build(BuildContext context) {
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -93,7 +93,7 @@ class _EventlyState extends State<Evently> {
               locale: local.locale,
               theme: mode.appTheme,
               onGenerateRoute: AppRouter.onGenerateRoute,
-              initialRoute: LayoutView.id,
+              initialRoute: getInitialRoute(),
             ),
           );
         },
